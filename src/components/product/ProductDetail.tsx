@@ -13,11 +13,27 @@ interface Props {
   product: Product
 }
 
+function getBundleDiscount(qty: number): number {
+  if (qty >= 5) return 0.20
+  if (qty >= 2) return 0.15
+  return 0
+}
+
+function getBundleLabel(qty: number): string | null {
+  if (qty >= 5) return '20% Bundle Discount Applied'
+  if (qty >= 2) return '15% Bundle Discount Applied'
+  return null
+}
+
 export function ProductDetail({ product }: Props) {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0])
   const [quantity, setQuantity] = useState(1)
   const [activeTab, setActiveTab] = useState<'description' | 'specs' | 'coa'>('description')
   const { addItem, openCart } = useCartStore()
+
+  const discount = getBundleDiscount(quantity)
+  const discountedPrice = Math.round(selectedVariant.price * (1 - discount))
+  const bundleLabel = getBundleLabel(quantity)
 
   const handleAddToCart = () => {
     if (!selectedVariant.inStock) return
@@ -26,7 +42,7 @@ export function ProductDetail({ product }: Props) {
       variantId: selectedVariant.id,
       productName: product.name,
       variantName: selectedVariant.name,
-      price: selectedVariant.price,
+      price: discountedPrice,
       quantity,
       slug: product.slug,
     })
@@ -113,10 +129,20 @@ export function ProductDetail({ product }: Props) {
 
             {/* Price */}
             <div className="mb-6">
-              <div className="font-display text-2xl font-700 text-brand-cyan">
-                {formatPrice(selectedVariant.price)}
-                <span className="font-mono text-sm text-text-muted ml-2">CAD</span>
+              <div className="flex items-baseline gap-3">
+                <div className="font-display text-2xl font-700 text-brand-cyan">
+                  {formatPrice(discountedPrice)}
+                  <span className="font-mono text-sm text-text-muted ml-2">CAD</span>
+                </div>
+                {discount > 0 && (
+                  <span className="font-mono text-sm text-text-muted line-through">{formatPrice(selectedVariant.price)}</span>
+                )}
               </div>
+              {discount > 0 && (
+                <div className="font-mono text-xs text-brand-green mt-1">
+                  You save {formatPrice(selectedVariant.price - discountedPrice)} per unit
+                </div>
+              )}
             </div>
 
             {/* Variant selector */}
@@ -145,23 +171,52 @@ export function ProductDetail({ product }: Props) {
               </div>
             )}
 
-            {/* Quantity */}
+            {/* Quantity + Bundle */}
             <div className="mb-6">
               <div className="font-mono text-xs text-text-muted tracking-widest uppercase mb-3">Quantity</div>
-              <div className="flex items-center border border-border-default w-fit">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-elevated transition-colors"
-                >
-                  <Minus size={14} />
-                </button>
-                <span className="w-12 text-center font-mono text-sm text-text-primary">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-elevated transition-colors"
-                >
-                  <Plus size={14} />
-                </button>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center border border-border-default w-fit">
+                  <button
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-elevated transition-colors"
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span className="w-12 text-center font-mono text-sm text-text-primary">{quantity}</span>
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-elevated transition-colors"
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
+                {bundleLabel && (
+                  <span className="font-mono text-xs text-brand-green font-700">{bundleLabel}</span>
+                )}
+              </div>
+
+              {/* Bundle tiers */}
+              <div className="mt-3 flex gap-2">
+                {[
+                  { label: '1×', qty: 1, note: 'Regular' },
+                  { label: '2–4×', qty: 2, note: '15% off' },
+                  { label: '5+×', qty: 5, note: '20% off' },
+                ].map(tier => (
+                  <button
+                    key={tier.label}
+                    onClick={() => setQuantity(tier.qty)}
+                    className={`flex-1 py-2 border font-mono text-xs text-center transition-all ${
+                      (tier.qty === 1 && quantity === 1) ||
+                      (tier.qty === 2 && quantity >= 2 && quantity < 5) ||
+                      (tier.qty === 5 && quantity >= 5)
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-brand-cyan'
+                        : 'border-border-subtle text-text-muted hover:border-border-default'
+                    }`}
+                  >
+                    <div className="font-700">{tier.label}</div>
+                    <div className="text-[10px] opacity-80">{tier.note}</div>
+                  </button>
+                ))}
               </div>
             </div>
 
