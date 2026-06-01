@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Shield, FlaskConical, Truck, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -10,8 +11,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen pt-20">
-      <div className="border-b border-border-subtle bg-bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Hero image header */}
+      <div className="relative w-full h-64 md:h-80 overflow-hidden">
+        <Image
+          src="/images/branding/science.png"
+          alt="Popular Peptides Research"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-primary/80" />
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <div className="section-label mb-2">Our Story</div>
           <h1 className="font-display text-4xl font-700 text-text-primary tracking-tight">About Popular Peptides</h1>
         </div>
