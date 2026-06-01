@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart, FlaskConical, Shield, FileText, ChevronRight, Plus, Minus, ExternalLink } from 'lucide-react'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
@@ -58,31 +59,22 @@ export function ProductDetail({ product }: Props) {
           {/* Left: Image */}
           <div>
             <div className="aspect-square bg-bg-secondary border border-border-subtle relative overflow-hidden">
-              <div className="absolute inset-0 grid-bg" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-32 h-48 bg-bg-elevated border border-border-bright flex flex-col items-center justify-center gap-4 shadow-cyan-md">
-                    <FlaskConical size={40} className="text-brand-cyan" strokeWidth={1.5} />
-                    <div className="text-center px-3">
-                      <div className="font-display text-xs font-700 text-text-primary tracking-wide leading-tight">
-                        {product.shortName || product.name}
-                      </div>
-                      {selectedVariant && (
-                        <div className="font-mono text-[10px] text-brand-cyan mt-1">{selectedVariant.name}</div>
-                      )}
-                    </div>
+              {product.images?.[0] ? (
+                <Image
+                  src={product.images[0].url}
+                  alt={product.images[0].alt}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 grid-bg" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <FlaskConical size={64} className="text-brand-cyan" strokeWidth={1} />
                   </div>
-                  {/* Decorative corners */}
-                  {['top-0 left-0', 'top-0 right-0', 'bottom-0 left-0', 'bottom-0 right-0'].map((pos, i) => (
-                    <div key={i} className={`absolute ${pos} w-4 h-4 border-brand-cyan/40 ${
-                      i === 0 ? 'border-t border-l -translate-x-2 -translate-y-2' :
-                      i === 1 ? 'border-t border-r translate-x-2 -translate-y-2' :
-                      i === 2 ? 'border-b border-l -translate-x-2 translate-y-2' :
-                      'border-b border-r translate-x-2 translate-y-2'
-                    }`} />
-                  ))}
-                </div>
-              </div>
+                </>
+              )}
               {product.badge && (
                 <div className="absolute top-4 left-4">
                   <span className="font-mono text-xs tracking-widest uppercase px-3 py-1.5 bg-brand-cyan text-bg-primary font-700">
