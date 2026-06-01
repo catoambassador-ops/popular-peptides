@@ -19,6 +19,61 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
+// Product name → slug mapping for auto-linking
+const PRODUCT_LINKS: { pattern: RegExp; slug: string }[] = [
+  { pattern: /\bRetatrutide\b/g,                slug: 'retatrutide' },
+  { pattern: /\bTirzepatide\b/g,                slug: 'tirzepatide' },
+  { pattern: /\bKGLOW\b/g,                      slug: 'kglow' },
+  { pattern: /\bGLOW\b(?! peptide)/g,           slug: 'glow' },
+  { pattern: /\bIGF-1 LR3\b/g,                  slug: 'igf-1-lr3' },
+  { pattern: /\bCJC-1295\b/g,                   slug: 'cjc-ipamorelin' },
+  { pattern: /\bIpamorelin\b/g,                 slug: 'cjc-ipamorelin' },
+  { pattern: /\bTesamorelin\b/g,                slug: 'tesamorelin' },
+  { pattern: /\bMOTS-C\b/g,                     slug: 'mots-c' },
+  { pattern: /\bDSIP\b/g,                       slug: 'dsip' },
+  { pattern: /\bOxytocin Acetate\b/g,           slug: 'oxytocin-acetate' },
+  { pattern: /\bNAD\+/g,                        slug: 'nad-plus' },
+  { pattern: /\bGHK-Cu\b/g,                     slug: 'ghk-cu' },
+  { pattern: /\bBPC-157\b/g,                    slug: 'bpc-157' },
+  { pattern: /\bTB-500\b/g,                     slug: 'tb-500' },
+  { pattern: /\bBacteriostatic [Ww]ater\b/g,    slug: 'bacteriostatic-water-30ml' },
+  { pattern: /\bBAC [Ww]ater\b/g,              slug: 'bacteriostatic-water-30ml' },
+  { pattern: /\bComplete Stack\b/g,             slug: 'complete-stack' },
+]
+
+function linkifyText(text: string): React.ReactNode[] {
+  // Build a combined regex with capture groups
+  const combined = PRODUCT_LINKS.map(p => `(${p.pattern.source})`).join('|')
+  const regex = new RegExp(combined, 'g')
+  const parts: React.ReactNode[] = []
+  let last = 0
+  let match: RegExpExecArray | null
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > last) {
+      parts.push(text.slice(last, match.index))
+    }
+    const matched = match[0]
+    const linkDef = PRODUCT_LINKS.find(p => new RegExp(p.pattern.source).test(matched))
+    if (linkDef) {
+      parts.push(
+        <Link
+          key={match.index}
+          href={`/products/${linkDef.slug}`}
+          className="text-brand-cyan hover:underline font-600"
+        >
+          {matched}
+        </Link>
+      )
+    } else {
+      parts.push(matched)
+    }
+    last = match.index + matched.length
+  }
+  if (last < text.length) parts.push(text.slice(last))
+  return parts.length ? parts : [text]
+}
+
 function renderContent(content: string) {
   const lines = content.split('\n')
   const elements: React.ReactNode[] = []
@@ -58,7 +113,7 @@ function renderContent(content: string) {
           {listItems.map((item, j) => (
             <li key={j} className="flex items-start gap-2 text-text-secondary text-sm leading-relaxed">
               <span className="text-brand-cyan mt-1 flex-shrink-0">—</span>
-              <span>{item}</span>
+              <span>{linkifyText(item)}</span>
             </li>
           ))}
         </ul>
@@ -98,7 +153,7 @@ function renderContent(content: string) {
     } else if (line.trim() !== '') {
       elements.push(
         <p key={i} className="font-body text-base text-text-secondary leading-relaxed mb-4">
-          {line}
+          {linkifyText(line)}
         </p>
       )
     }
