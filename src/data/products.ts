@@ -223,6 +223,30 @@ export const products: Product[] = [
     createdAt: '2024-01-01',
     updatedAt: '2024-06-01',
   },
+  {
+    id: 'retatrutide',
+    slug: 'retatrutide',
+    name: 'Retatrutide',
+    shortName: 'Retatrutide',
+    category: 'peptides',
+    subcategory: 'metabolic',
+    description: `Retatrutide is a novel triple agonist peptide targeting GIP, GLP-1, and glucagon receptors simultaneously. It represents the next generation of metabolic research compounds, with preclinical studies exploring its effects on energy expenditure, glucose regulation, and body composition.\n\nAs a triagonist, it activates three complementary pathways — making it a subject of significant interest in obesity and metabolic disorder research.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
+    shortDescription: 'Triple receptor agonist (GIP/GLP-1/Glucagon) studied for metabolic and weight management research.',
+    images: [
+      { url: '/images/products/retatrutide10mg.jpg', alt: 'Retatrutide 10mg vial' }
+    ],
+    variants: [
+      { id: 'retatrutide-10mg', name: '10mg', price: 14999, sku: 'PP-RETA-10', inStock: true },
+    ],
+    tags: ['research', 'peptide', 'metabolic', 'glp-1', 'weight'],
+    researchAreas: ['metabolic', 'weight-management'],
+    purity: '≥99%',
+    molecularWeight: '4759.5 g/mol',
+    featured: true,
+    badge: 'New',
+    createdAt: '2024-06-01',
+    updatedAt: '2024-06-01',
+  },
 ]
 
 export const getProductBySlug = (slug: string): Product | undefined =>
