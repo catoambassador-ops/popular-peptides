@@ -173,13 +173,50 @@ export function Navbar() {
             </div>
 
             {/* Right actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
+
+              {/* Category dropdown */}
+              <div
+                className="relative hidden sm:block"
+                onMouseEnter={() => setActiveDropdown('categories')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="flex items-center gap-1.5 px-4 py-2 bg-brand-cyan text-bg-primary font-display font-700 text-sm tracking-widest uppercase hover:bg-brand-cyan-dim transition-colors">
+                  Categories <ChevronDown size={14} className={cn('transition-transform duration-200', activeDropdown === 'categories' ? 'rotate-180' : '')} />
+                </button>
+                {activeDropdown === 'categories' && (
+                  <div className="absolute top-full right-0 pt-1 w-52 z-50">
+                    <div className="bg-bg-secondary border border-border-default shadow-[0_8px_32px_rgba(0,0,0,0.4)] py-1">
+                      {[
+                        { label: 'All Products', href: '/products' },
+                        { label: 'Metabolic', href: '/products?area=metabolic' },
+                        { label: 'Hormonal', href: '/products?area=hormonal' },
+                        { label: 'Dermatological', href: '/products?area=dermatological' },
+                        { label: 'Cellular Longevity', href: '/products?area=cellular-longevity' },
+                        { label: 'Cognitive', href: '/products?area=cognitive' },
+                        { label: 'Tissue Regeneration', href: '/products?area=tissue-regeneration' },
+                        { label: 'Musculoskeletal', href: '/products?area=musculoskeletal' },
+                        { label: 'Accessories', href: '/category/accessories' },
+                      ].map(item => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-2.5 text-sm font-600 text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <button
                 onClick={() => setSearchOpen(true)}
-                className="btn-ghost hidden sm:flex p-2"
+                className="p-2 text-text-secondary hover:text-text-primary transition-colors hidden sm:flex"
                 aria-label="Search"
               >
-                <Search size={18} />
+                <Search size={20} />
               </button>
 
               <button
@@ -187,7 +224,7 @@ export function Navbar() {
                 className="relative p-2 text-text-secondary hover:text-text-primary transition-colors"
                 aria-label="Open cart"
               >
-                <ShoppingCart size={20} />
+                <ShoppingCart size={22} />
                 {count > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] bg-brand-cyan text-bg-primary text-[10px] font-mono font-700 rounded-none flex items-center justify-center px-1">
                     {count}
