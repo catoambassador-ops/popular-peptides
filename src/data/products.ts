@@ -237,7 +237,7 @@ export const products: Product[] = [
     description: `NAD+ (Nicotinamide Adenine Dinucleotide) is a critical coenzyme found in all living cells, central to energy metabolism and cellular repair mechanisms. Research interest in NAD+ has surged due to its role in activating sirtuins, supporting DNA repair, and regulating the circadian clock.\n\nStudies have investigated its role in mitochondrial function, neuroprotection, and the biology of ageing. Preclinical models have shown promising results in restoration of NAD+ levels in aged tissues.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
     shortDescription: 'Critical coenzyme studied for energy metabolism, DNA repair, sirtuin activation, and cellular longevity.',
     images: [{ url: '/images/products/peptide-vial-1.jpg', alt: 'NAD+ 500mg vial' }],
-    variants: [{ id: 'nad-500mg', name: '500mg', price: 4500, sku: 'PP-NAD-500', inStock: true }],
+    variants: [{ id: 'nad-500mg', name: '500mg', price: 9999, sku: 'PP-NAD-500', inStock: true }],
     tags: ['research', 'nad', 'longevity', 'sirtuin', 'metabolic'],
     researchAreas: ['cellular-longevity', 'metabolic'],
     purity: '≥99%',
