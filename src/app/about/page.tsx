@@ -34,7 +34,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-3xl font-700 text-text-primary tracking-tight mb-8">Our Standards</h2>
+          <h2 className="font-display text-3xl font-700 text-brand-cyan tracking-widest uppercase text-center mb-8">Our Standards</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               { Icon: Shield, title: 'Uncompromising Quality', desc: 'Third-party HPLC and LC-MS testing on every batch. ≥99% purity standard across our entire catalog.' },
