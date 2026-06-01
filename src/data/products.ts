@@ -21,7 +21,7 @@ export const products: Product[] = [
     researchAreas: ['tissue-regeneration', 'metabolic', 'cellular-longevity'],
     purity: '≥99%',
     featured: true,
-    badge: 'Best Value',
+    badge: 'Best Seller',
     createdAt: '2024-06-01',
     updatedAt: '2024-06-01',
   },
