@@ -270,28 +270,6 @@ export const products: Product[] = [
     createdAt: '2024-05-01',
     updatedAt: '2024-06-01',
   },
-
-  // ─── ACCESSORIES ──────────────────────────────────────────────────────────
-  {
-    id: 'insulin-syringes',
-    slug: 'insulin-syringes-100-pack',
-    name: 'Insulin Syringes — 100 Pack',
-    shortName: 'Insulin Syringes',
-    category: 'accessories',
-    description: `High-quality 29-gauge insulin syringes, 1ml capacity with 0.5 inch needle. Individually packaged and sterile. Suitable for precise liquid measurement in research applications.\n\n100 units per box. 29G × 1/2" needle, 1cc/1ml barrel with clear measurement markings.`,
-    shortDescription: '29G insulin syringes, 1ml. Sterile, individually packaged. 100 pack.',
-    images: [
-      { url: '/images/products/syringes.jpg', alt: 'Insulin syringes 100 pack' }
-    ],
-    variants: [
-      { id: 'syringes-100', name: '100 Pack', price: 1999, sku: 'PP-SYR-100', inStock: true },
-    ],
-    tags: ['accessories', 'syringes', 'supplies'],
-    researchAreas: [],
-    featured: false,
-    createdAt: '2024-01-01',
-    updatedAt: '2024-06-01',
-  },
 ]
 
 export const getProductBySlug = (slug: string): Product | undefined =>
