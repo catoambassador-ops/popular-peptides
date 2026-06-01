@@ -155,18 +155,18 @@ export default function CheckoutPage() {
 
               {/* BAC Water reminder */}
               {showBacWaterReminder && (
-                <div className="border border-brand-cyan/40 bg-brand-cyan/5 p-4 flex items-start gap-4">
-                  <FlaskConical size={22} className="text-brand-cyan flex-shrink-0 mt-0.5" />
+                <div className="border-2 border-brand-cyan bg-brand-cyan/10 p-5 flex items-center gap-5">
+                  <FlaskConical size={32} className="text-brand-cyan flex-shrink-0" />
                   <div className="flex-1">
-                    <div className="font-display text-sm font-700 text-text-primary tracking-wide">Don't forget Bacteriostatic Water</div>
-                    <p className="text-xs text-text-secondary mt-1 leading-relaxed">
-                      Your order contains lyophilised peptides that require reconstitution before use. Bacteriostatic water is needed to prepare your compounds.
+                    <div className="font-display text-base font-700 text-text-primary tracking-widest uppercase">⚠️ Bacteriostatic Water Required</div>
+                    <p className="text-sm text-text-secondary mt-1 leading-relaxed">
+                      Your peptides must be reconstituted before use. You have no BAC water in your cart — add it now to complete your research setup.
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={addBacWater}
-                    className="flex-shrink-0 font-mono text-xs text-brand-cyan border border-brand-cyan px-3 py-1.5 hover:bg-brand-cyan hover:text-bg-primary transition-colors whitespace-nowrap"
+                    className="flex-shrink-0 bg-brand-cyan text-bg-primary font-display font-700 text-sm tracking-widest uppercase px-5 py-3 hover:bg-brand-cyan-dim transition-colors whitespace-nowrap"
                   >
                     + Add BAC Water
                   </button>
