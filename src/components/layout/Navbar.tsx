@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { ShoppingCart, Menu, X, ChevronDown, Search } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
@@ -60,16 +61,12 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-10 h-7 relative overflow-hidden rounded-sm shadow-sm flex-shrink-0">
-              {/* Canadian flag: red | white+maple | red */}
-              <div className="absolute inset-0 flex">
-                <div className="w-1/4 h-full bg-red-600" />
-                <div className="w-2/4 h-full bg-white flex items-center justify-center">
-                  <svg viewBox="0 0 100 80" className="w-5 h-5 text-red-600 fill-red-600">
-                    <path d="M50 5 L57 28 L80 28 L63 42 L70 65 L50 52 L30 65 L37 42 L20 28 L43 28 Z" />
-                  </svg>
-                </div>
-                <div className="w-1/4 h-full bg-red-600" />
-              </div>
+              <Image
+                src="/images/branding/canadaflag.jpg"
+                alt="Canada flag"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="leading-none">
               <div className="font-display text-lg font-700 text-text-primary tracking-widest uppercase">
