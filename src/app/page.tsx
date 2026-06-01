@@ -44,8 +44,7 @@ export default function HomePage() {
             </h1>
 
             <p className="fade-up fade-up-3 font-body text-lg text-text-secondary leading-relaxed mb-8 max-w-xl">
-              Popular Peptides provides Canadian researchers with independently verified, 
-              GMP-grade compounds. Every batch tested. Every COA included.
+              Popular Peptides is Canada's trusted source for GMP-grade research compounds, independently verified for purity and potency. Every batch undergoes rigorous third-party testing, with a full Certificate of Analysis included — so you can research with confidence. Elevate your research. Order today.
             </p>
 
             <div className="fade-up fade-up-4 flex flex-wrap gap-4">
