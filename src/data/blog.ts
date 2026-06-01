@@ -646,6 +646,7 @@ As research continues to evolve, few compounds will be watched more closely than
     title: 'I Rebuilt My Ruined Joint: Testing the Limits of Regenerative Peptides on a 10-Year-Old Sports Injury',
     excerpt: 'For nearly a decade, my shoulder reminded me of every mistake I\'d made as an athlete. Here\'s what happened when I explored regenerative peptide research as part of a broader recovery strategy.',
     date: '2024-06-20',
+    image: '/images/branding/KNEEinjury.png',
     readTime: '9 min read',
     category: 'Recovery Research',
     tags: ['bpc-157', 'tb-500', 'ghk-cu', 'sports recovery', 'regenerative peptides', 'joint recovery', 'peptides canada'],
