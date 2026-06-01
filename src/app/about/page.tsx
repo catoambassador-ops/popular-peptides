@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero image header */}
-      <div className="relative w-full h-64 md:h-80 overflow-hidden">
+      <div className="relative w-full h-80 md:h-[480px] overflow-hidden">
         <Image
           src="/images/branding/science.png"
           alt="Popular Peptides Research"
