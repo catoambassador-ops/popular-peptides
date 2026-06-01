@@ -3,26 +3,38 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { FlaskConical, Syringe, Calculator, ChevronRight, Info, ShoppingCart } from 'lucide-react'
-import { Metadata } from 'next'
+import { products } from '@/data/products'
+
+// Auto-derive vial sizes from product variant names (e.g. "10mg" → 10)
+function parseVialMg(variantName: string): number {
+  const match = variantName.match(/([\d.]+)\s*mg/i)
+  return match ? parseFloat(match[1]) : 0
+}
 
 const PRESET_PEPTIDES = [
-  { name: 'BPC-157',        commonDose: 250,  unit: 'mcg', vialSize: 5  },
-  { name: 'TB-500',         commonDose: 2500, unit: 'mcg', vialSize: 5  },
-  { name: 'Retatrutide',    commonDose: 2000, unit: 'mcg', vialSize: 10 },
-  { name: 'Tirzepatide',    commonDose: 5000, unit: 'mcg', vialSize: 10 },
-  { name: 'CJC+Ipamorelin', commonDose: 100,  unit: 'mcg', vialSize: 5  },
-  { name: 'IGF-1 LR3',     commonDose: 50,   unit: 'mcg', vialSize: 1  },
-  { name: 'Tesamorelin',    commonDose: 1000, unit: 'mcg', vialSize: 10 },
-  { name: 'MOTS-C',        commonDose: 10000,unit: 'mcg', vialSize: 10 },
-  { name: 'NAD+',          commonDose: 50000,unit: 'mcg', vialSize: 500 },
-  { name: 'DSIP',          commonDose: 500,  unit: 'mcg', vialSize: 5  },
-  { name: 'GHK-Cu',        commonDose: 1000, unit: 'mcg', vialSize: 5  },
-  { name: 'Selank',        commonDose: 250,  unit: 'mcg', vialSize: 5  },
-  { name: 'Semax',         commonDose: 200,  unit: 'mcg', vialSize: 10 },
-  { name: 'Epitalon',      commonDose: 5000, unit: 'mcg', vialSize: 10 },
-  { name: 'KGLOW',         commonDose: 2000, unit: 'mcg', vialSize: 10 },
-  { name: 'Custom',        commonDose: 0,    unit: 'mcg', vialSize: 0  },
-]
+  { name: 'BPC-157',        commonDose: 250,   slug: 'bpc-157' },
+  { name: 'TB-500',         commonDose: 2500,  slug: 'tb-500' },
+  { name: 'Retatrutide',    commonDose: 2000,  slug: 'retatrutide' },
+  { name: 'Tirzepatide',    commonDose: 5000,  slug: 'tirzepatide' },
+  { name: 'CJC+Ipamorelin', commonDose: 100,   slug: 'cjc-ipamorelin' },
+  { name: 'IGF-1 LR3',     commonDose: 50,    slug: 'igf-1-lr3' },
+  { name: 'Tesamorelin',    commonDose: 1000,  slug: 'tesamorelin' },
+  { name: 'MOTS-C',        commonDose: 10000, slug: 'mots-c' },
+  { name: 'NAD+',          commonDose: 50000, slug: 'nad-plus' },
+  { name: 'DSIP',          commonDose: 500,   slug: 'dsip' },
+  { name: 'GHK-Cu',        commonDose: 1000,  slug: 'ghk-cu' },
+  { name: 'KGLOW',         commonDose: 2000,  slug: 'kglow' },
+  { name: 'GLOW',          commonDose: 1000,  slug: 'glow' },
+  { name: 'Oxytocin',      commonDose: 1000,  slug: 'oxytocin-acetate' },
+  { name: 'Custom',        commonDose: 0,     slug: '' },
+].map(p => {
+  if (!p.slug) return { ...p, vialSize: 5 }
+  const product = products.find(x => x.slug === p.slug)
+  const vialSize = product
+    ? parseVialMg(product.variants[0]?.name ?? '') || 5
+    : 5
+  return { ...p, vialSize }
+})
 
 function SyringeVisual({ fillPercent }: { fillPercent: number }) {
   const pct = Math.min(Math.max(fillPercent, 0), 100)
