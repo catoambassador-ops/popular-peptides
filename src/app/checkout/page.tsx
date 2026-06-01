@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight, AlertCircle, FlaskConical } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
-import { formatPrice, PROVINCES } from '@/lib/utils'
+import { formatPrice, PROVINCES, calculateTax, PROVINCE_TAX_RATES } from '@/lib/utils'
 import { CheckoutForm } from '@/types'
 
 const initialForm: CheckoutForm = {
@@ -99,7 +99,8 @@ export default function CheckoutPage() {
           paymentMethod: form.paymentMethod,
           subtotal: subtotal(),
           shipping: shipping(),
-          total: total(),
+          tax,
+          total: grandTotal,
           notes: form.notes,
         }),
       })
@@ -108,13 +109,17 @@ export default function CheckoutPage() {
       if (!res.ok) throw new Error(data.error || 'Failed to place order')
 
       clearCart()
-      router.push(`/checkout/confirmation?order=${data.orderNumber}&method=${form.paymentMethod}&total=${total()}`)
+      router.push(`/checkout/confirmation?order=${data.orderNumber}&method=${form.paymentMethod}&total=${grandTotal}`)
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again or contact us.')
     } finally {
       setLoading(false)
     }
   }
+
+  const tax = calculateTax(subtotal(), shipping(), form.province)
+  const taxLabel = PROVINCE_TAX_RATES[form.province]?.label ?? 'Tax'
+  const grandTotal = subtotal() + shipping() + tax
 
   const hasPeptides = items.some(item => item.productId !== 'bac-water-30ml' && item.productId !== 'insulin-syringes')
   const hasBacWater = items.some(item => item.productId === 'bac-water-30ml')
@@ -341,9 +346,13 @@ export default function CheckoutPage() {
                       {shipping() === 0 ? 'FREE' : formatPrice(shipping())}
                     </span>
                   </div>
+                  <div className="flex justify-between text-sm text-text-secondary">
+                    <span>{taxLabel}</span>
+                    <span className="font-mono">{formatPrice(tax)}</span>
+                  </div>
                   <div className="flex justify-between font-display font-700 text-base pt-2 border-t border-border-subtle">
                     <span>Total</span>
-                    <span className="font-mono text-brand-cyan">{formatPrice(total())}</span>
+                    <span className="font-mono text-brand-cyan">{formatPrice(grandTotal)}</span>
                   </div>
                 </div>
 
