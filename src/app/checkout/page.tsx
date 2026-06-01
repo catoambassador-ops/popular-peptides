@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronRight, AlertCircle } from 'lucide-react'
+import { ChevronRight, AlertCircle, FlaskConical } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
 import { formatPrice, PROVINCES } from '@/lib/utils'
 import { CheckoutForm } from '@/types'
@@ -104,6 +104,10 @@ export default function CheckoutPage() {
     }
   }
 
+  const hasPeptides = items.some(item => item.productId !== 'bac-water-30ml' && item.productId !== 'insulin-syringes')
+  const hasBacWater = items.some(item => item.productId === 'bac-water-30ml')
+  const showBacWaterReminder = hasPeptides && !hasBacWater
+
   if (items.length === 0) {
     return (
       <div className="min-h-screen pt-28 flex items-center justify-center">
@@ -136,7 +140,26 @@ export default function CheckoutPage() {
             
             {/* ─── LEFT: Form ─── */}
             <div className="lg:col-span-2 space-y-8">
-              
+
+              {/* BAC Water reminder */}
+              {showBacWaterReminder && (
+                <div className="border border-brand-cyan/40 bg-brand-cyan/5 p-4 flex items-start gap-4">
+                  <FlaskConical size={22} className="text-brand-cyan flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <div className="font-display text-sm font-700 text-text-primary tracking-wide">Don't forget Bacteriostatic Water</div>
+                    <p className="text-xs text-text-secondary mt-1 leading-relaxed">
+                      Your order contains lyophilised peptides that require reconstitution before use. Bacteriostatic water is needed to prepare your compounds.
+                    </p>
+                  </div>
+                  <Link
+                    href="/products/bacteriostatic-water-30ml"
+                    className="flex-shrink-0 font-mono text-xs text-brand-cyan border border-brand-cyan px-3 py-1.5 hover:bg-brand-cyan hover:text-bg-primary transition-colors whitespace-nowrap"
+                  >
+                    Add to Cart
+                  </Link>
+                </div>
+              )}
+
               {/* Contact */}
               <div className="card p-6">
                 <h2 className="font-display text-lg font-700 text-text-primary tracking-wide mb-5">Contact Information</h2>
