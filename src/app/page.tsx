@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Shield, FlaskConical, Truck, Award, ChevronRight } from 'lucide-react'
 import { getFeaturedProducts } from '@/data/products'
 import { ProductCard } from '@/components/product/ProductCard'
@@ -72,27 +73,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Decorative right side */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-3/4 hidden lg:block">
+        {/* Hero product image */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5/12 h-full hidden lg:block">
           <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-l from-bg-primary to-transparent z-10" />
-            <div className="w-full h-full bg-bg-tertiary border-l border-t border-border-bright flex items-center justify-center">
-              <div className="relative">
-                <div className="w-32 h-48 bg-bg-elevated border border-border-bright flex flex-col items-center justify-center gap-3 shadow-cyan-lg glow-pulse">
-                  <FlaskConical size={32} className="text-brand-cyan" />
-                  <div className="text-center">
-                    <div className="font-mono text-[10px] text-brand-cyan tracking-widest">COA VERIFIED</div>
-                    <div className="font-display text-sm font-700 text-text-primary mt-1">99.8%</div>
-                    <div className="font-mono text-[9px] text-text-muted">PURITY</div>
-                  </div>
-                </div>
-                {/* Decorative lines */}
-                <div className="absolute -top-8 left-1/2 w-px h-8 bg-gradient-to-t from-brand-cyan to-transparent" />
-                <div className="absolute -bottom-8 left-1/2 w-px h-8 bg-gradient-to-b from-brand-cyan to-transparent" />
-                <div className="absolute top-1/2 -left-8 h-px w-8 bg-gradient-to-l from-brand-cyan to-transparent" />
-                <div className="absolute top-1/2 -right-8 h-px w-8 bg-gradient-to-r from-brand-cyan to-transparent" />
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-transparent to-transparent z-10" />
+            <Image
+              src="/images/branding/hero-products.jpg"
+              alt="Popular Peptides products"
+              fill
+              className="object-cover object-left"
+              priority
+            />
           </div>
         </div>
       </section>
