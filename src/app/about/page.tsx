@@ -22,7 +22,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-primary/80" />
         <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <div className="section-label mb-2">Our Story</div>
+          <div className="font-display text-lg font-700 text-brand-cyan tracking-widest uppercase mb-1">Our Story</div>
           <h1 className="font-display text-4xl font-700 text-text-primary tracking-tight">About Popular Peptides</h1>
         </div>
       </div>
