@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import { ShoppingCart, Menu, X, ChevronDown, Search, ArrowRight } from 'lucide-react'
+import { ShoppingCart, Menu, X, ChevronDown, Search, ArrowRight, Heart } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
+import { useWishlistStore } from '@/lib/wishlist-store'
 import { cn } from '@/lib/utils'
 import { products } from '@/data/products'
 
@@ -38,6 +39,7 @@ export function Navbar() {
   const router = useRouter()
   const { itemCount, toggleCart } = useCartStore()
   const count = itemCount()
+  const { slugs: wishlistSlugs } = useWishlistStore()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -211,6 +213,15 @@ export function Navbar() {
                   </div>
                 )}
               </div>
+
+              <Link href="/wishlist" className="relative p-2 text-text-secondary hover:text-text-primary transition-colors hidden sm:flex">
+                <Heart size={20} />
+                {wishlistSlugs.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-[16px] bg-red-400 text-white text-[9px] font-mono font-700 rounded-none flex items-center justify-center px-1">
+                    {wishlistSlugs.length}
+                  </span>
+                )}
+              </Link>
 
               <button
                 onClick={() => setSearchOpen(true)}

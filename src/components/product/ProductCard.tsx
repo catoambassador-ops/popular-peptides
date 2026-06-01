@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingCart, FlaskConical } from 'lucide-react'
+import { ShoppingCart, FlaskConical, Heart } from 'lucide-react'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/lib/cart-store'
+import { useWishlistStore } from '@/lib/wishlist-store'
 import toast from 'react-hot-toast'
 
 interface ProductCardProps {
@@ -15,7 +16,9 @@ interface ProductCardProps {
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const { addItem, openCart } = useCartStore()
+  const { toggle, has } = useWishlistStore()
   const defaultVariant = product.variants[0]
+  const wishlisted = has(product.slug)
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -76,6 +79,15 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </span>
           </div>
         )}
+
+        {/* Wishlist heart */}
+        <button
+          onClick={(e) => { e.preventDefault(); toggle(product.slug); toast.success(wishlisted ? 'Removed from wishlist' : 'Added to wishlist', { duration: 1500 }) }}
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-bg-secondary/80 backdrop-blur-sm border border-border-subtle hover:border-red-400 transition-all"
+          aria-label="Toggle wishlist"
+        >
+          <Heart size={14} className={wishlisted ? 'fill-red-400 text-red-400' : 'text-text-muted'} />
+        </button>
 
         {/* Quick add overlay */}
         <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-200">

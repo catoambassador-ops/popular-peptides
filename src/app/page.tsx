@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ArrowRight, Shield, FlaskConical, Truck, Award, ChevronRight } from 'lucide-react'
 import { getFeaturedProducts } from '@/data/products'
 import { ProductCard } from '@/components/product/ProductCard'
+import { RecentlyViewed } from '@/components/RecentlyViewed'
 
 const researchCategories = [
   { name: 'Musculoskeletal', href: '/products?area=musculoskeletal', icon: '🦴' },
@@ -263,6 +264,8 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <RecentlyViewed />
     </div>
   )
 }

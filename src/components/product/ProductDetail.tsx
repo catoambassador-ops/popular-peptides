@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingCart, FlaskConical, Shield, FileText, ChevronRight, Plus, Minus, ExternalLink } from 'lucide-react'
+import { ShoppingCart, FlaskConical, Shield, FileText, ChevronRight, Plus, Minus, ExternalLink, Heart } from 'lucide-react'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/lib/cart-store'
+import { useWishlistStore } from '@/lib/wishlist-store'
+import { useRecentlyViewedStore } from '@/lib/recently-viewed-store'
 import toast from 'react-hot-toast'
 
 interface Props {
@@ -30,6 +32,18 @@ export function ProductDetail({ product }: Props) {
   const [quantity, setQuantity] = useState(1)
   const [activeTab, setActiveTab] = useState<'description' | 'specs' | 'coa'>('description')
   const { addItem, openCart } = useCartStore()
+  const { toggle, has } = useWishlistStore()
+  const { add: addRecentlyViewed } = useRecentlyViewedStore()
+  const wishlisted = has(product.slug)
+
+  useEffect(() => {
+    addRecentlyViewed({
+      slug: product.slug,
+      name: product.name,
+      price: product.variants[0]?.price ?? 0,
+      image: product.images?.[0]?.url,
+    })
+  }, [product.slug])
 
   const discount = getBundleDiscount(quantity)
   const discountedPrice = Math.round(selectedVariant.price * (1 - discount))
@@ -220,15 +234,24 @@ export function ProductDetail({ product }: Props) {
               </div>
             </div>
 
-            {/* Add to cart */}
-            <button
-              onClick={handleAddToCart}
-              disabled={!selectedVariant.inStock}
-              className="btn-primary w-full justify-center text-base py-4 mb-4 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <ShoppingCart size={18} />
-              {selectedVariant.inStock ? 'Add to Cart' : 'Out of Stock'}
-            </button>
+            {/* Add to cart + Wishlist */}
+            <div className="flex gap-3 mb-4">
+              <button
+                onClick={handleAddToCart}
+                disabled={!selectedVariant.inStock}
+                className="btn-primary flex-1 justify-center text-base py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ShoppingCart size={18} />
+                {selectedVariant.inStock ? 'Add to Cart' : 'Out of Stock'}
+              </button>
+              <button
+                onClick={() => { toggle(product.slug); toast.success(wishlisted ? 'Removed from wishlist' : 'Saved to wishlist', { duration: 1500 }) }}
+                className={`w-14 py-4 border flex items-center justify-center transition-all ${wishlisted ? 'border-red-400 bg-red-400/10' : 'border-border-default hover:border-red-400'}`}
+                aria-label="Toggle wishlist"
+              >
+                <Heart size={18} className={wishlisted ? 'fill-red-400 text-red-400' : 'text-text-muted'} />
+              </button>
+            </div>
 
             {/* COA */}
             {product.coaUrl && (

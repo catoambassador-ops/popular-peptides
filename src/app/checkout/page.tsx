@@ -1,12 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronRight, AlertCircle, FlaskConical } from 'lucide-react'
+import { ChevronRight, AlertCircle, FlaskConical, MapPin } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
 import { formatPrice, PROVINCES, calculateTax, PROVINCE_TAX_RATES } from '@/lib/utils'
 import { CheckoutForm } from '@/types'
+
+const SAVED_ADDRESS_KEY = 'pp-saved-address'
+
+function getSavedAddress(): Partial<CheckoutForm> | null {
+  if (typeof window === 'undefined') return null
+  try { return JSON.parse(localStorage.getItem(SAVED_ADDRESS_KEY) || 'null') } catch { return null }
+}
+
+function saveAddress(form: CheckoutForm) {
+  const { firstName, lastName, email, phone, address1, address2, city, province, postalCode } = form
+  localStorage.setItem(SAVED_ADDRESS_KEY, JSON.stringify({ firstName, lastName, email, phone, address1, address2, city, province, postalCode }))
+}
 
 const initialForm: CheckoutForm = {
   firstName: '',
@@ -43,6 +55,19 @@ export default function CheckoutPage() {
   const [form, setForm] = useState<CheckoutForm>(initialForm)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [hasSavedAddress, setHasSavedAddress] = useState(false)
+
+  useEffect(() => {
+    const saved = getSavedAddress()
+    if (saved && saved.firstName) {
+      setHasSavedAddress(true)
+    }
+  }, [])
+
+  const applySavedAddress = () => {
+    const saved = getSavedAddress()
+    if (saved) setForm(prev => ({ ...prev, ...saved }))
+  }
 
   const set = (field: keyof CheckoutForm) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -108,6 +133,7 @@ export default function CheckoutPage() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to place order')
 
+      saveAddress(form)
       clearCart()
       router.push(`/checkout/confirmation?order=${data.orderNumber}&method=${form.paymentMethod}&total=${grandTotal}`)
     } catch (err: any) {
@@ -174,6 +200,26 @@ export default function CheckoutPage() {
                     className="flex-shrink-0 bg-brand-cyan text-bg-primary font-display font-700 text-sm tracking-widest uppercase px-5 py-3 hover:bg-brand-cyan-dim transition-colors whitespace-nowrap"
                   >
                     + Add BAC Water
+                  </button>
+                </div>
+              )}
+
+              {/* Saved address banner */}
+              {hasSavedAddress && (
+                <div className="flex items-center justify-between border border-border-default bg-bg-secondary p-4">
+                  <div className="flex items-center gap-3">
+                    <MapPin size={16} className="text-brand-cyan flex-shrink-0" />
+                    <div>
+                      <div className="font-display text-sm font-700 text-text-primary">Saved address detected</div>
+                      <div className="font-mono text-xs text-text-muted">Use your details from last time</div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={applySavedAddress}
+                    className="font-mono text-xs text-brand-cyan border border-brand-cyan px-3 py-1.5 hover:bg-brand-cyan hover:text-bg-primary transition-colors whitespace-nowrap"
+                  >
+                    Auto-Fill
                   </button>
                 </div>
               )}
