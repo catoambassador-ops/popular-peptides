@@ -146,18 +146,17 @@ export default function HomePage() {
             <h2 className="section-title">Shop by Category</h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {researchCategories.map(cat => (
               <Link
                 key={cat.name}
                 href={cat.href}
-                className="card card-hover p-5 flex items-center gap-3 group"
+                className="card card-hover p-6 flex flex-col items-center text-center gap-3 group"
               >
-                <span className="text-xl">{cat.icon}</span>
-                <span className="font-body text-sm text-text-secondary group-hover:text-text-primary transition-colors">
+                <span className="text-4xl group-hover:scale-110 transition-transform duration-200">{cat.icon}</span>
+                <span className="font-display text-sm font-700 text-text-primary tracking-wide uppercase group-hover:text-brand-cyan transition-colors">
                   {cat.name}
                 </span>
-                <ChevronRight size={14} className="ml-auto text-text-muted group-hover:text-brand-cyan transition-colors" />
               </Link>
             ))}
           </div>
