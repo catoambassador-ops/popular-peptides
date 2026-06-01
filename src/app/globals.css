@@ -12,8 +12,8 @@
   }
 
   body {
-    background-color: #080A0F;
-    color: #F0F4FF;
+    background-color: #F8FAFC;
+    color: #0F172A;
   }
 
   /* Custom scrollbar */
@@ -21,19 +21,19 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0D1117;
+    background: #EEF2F7;
   }
   ::-webkit-scrollbar-thumb {
-    background: #243040;
+    background: #CBD5E1;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00D4FF40;
+    background: #0284C740;
   }
 
   ::selection {
-    background: #00D4FF30;
-    color: #00D4FF;
+    background: #0284C720;
+    color: #0284C7;
   }
 }
 
@@ -91,8 +91,8 @@
   }
 
   .grid-bg {
-    background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(2,132,199,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(2,132,199,0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
