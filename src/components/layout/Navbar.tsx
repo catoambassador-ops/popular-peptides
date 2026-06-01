@@ -182,7 +182,7 @@ export function Navbar() {
                 onMouseEnter={() => setActiveDropdown('categories')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1.5 px-4 py-2 bg-brand-cyan text-bg-primary font-display font-700 text-sm tracking-widest uppercase hover:bg-brand-cyan-dim transition-colors">
+                <button className="flex items-center gap-1 px-3 py-1.5 bg-brand-cyan text-bg-primary font-display font-700 text-xs tracking-widest uppercase hover:bg-brand-cyan-dim transition-colors">
                   Categories <ChevronDown size={14} className={cn('transition-transform duration-200', activeDropdown === 'categories' ? 'rotate-180' : '')} />
                 </button>
                 {activeDropdown === 'categories' && (
