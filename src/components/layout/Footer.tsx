@@ -29,20 +29,20 @@ export function Footer() {
   return (
     <footer className="bg-bg-secondary border-t border-border-subtle mt-20">
       {/* Trust strip */}
-      <div className="border-b border-border-subtle">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div className="bg-brand-cyan">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { label: 'Third-Party Tested', sub: 'HPLC & Mass Spec' },
+              { label: 'Third-Party Tested', sub: 'HPLC & Mass Spectrometry' },
               { label: '≥99% Purity', sub: 'Every Batch' },
               { label: 'Canadian Company', sub: 'Based in Canada' },
               { label: 'Fast Shipping', sub: 'Tracked & Insured' },
             ].map(item => (
               <div key={item.label} className="space-y-1">
-                <div className="font-display text-sm font-700 text-text-primary tracking-wide">
+                <div className="font-display text-base font-700 text-bg-primary tracking-widest uppercase">
                   {item.label}
                 </div>
-                <div className="font-mono text-[11px] text-text-muted tracking-widest uppercase">
+                <div className="font-mono text-xs text-bg-primary/70 tracking-widest uppercase">
                   {item.sub}
                 </div>
               </div>
