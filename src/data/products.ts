@@ -45,6 +45,7 @@ export const products: Product[] = [
     purity: '≥99%',
     molecularWeight: '4759.5 g/mol',
     featured: true,
+    badge: 'Best Seller',
     createdAt: '2024-06-01',
     updatedAt: '2024-06-01',
   },
