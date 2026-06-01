@@ -2,6 +2,7 @@ export interface BlogPost {
   slug: string
   title: string
   excerpt: string
+  image?: string
   content: string
   date: string
   readTime: string
@@ -540,6 +541,7 @@ This guide is intended for laboratory research use only. All peptides and recons
     title: 'The Forbidden Fat-Loss Molecule: Unveiling the Triple-Agonist Peptide Reshaping Weight-Loss Research',
     excerpt: 'Behind the scenes of GLP-1 therapies, another peptide has been generating enormous interest. Its name is Retatrutide — and researchers believe it could represent a significant evolution in metabolic science.',
     date: '2024-06-22',
+    image: '/images/branding/forbidden.png',
     readTime: '8 min read',
     category: 'Research Overview',
     tags: ['retatrutide', 'triple agonist', 'glp-1', 'gip', 'glucagon', 'metabolic research', 'weight loss peptide canada', 'fat loss peptide'],

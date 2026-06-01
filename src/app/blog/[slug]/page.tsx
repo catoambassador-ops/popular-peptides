@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getBlogPosts } from '@/data/blog'
 import { getProductBySlug } from '@/data/products'
@@ -184,6 +185,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </nav>
         </div>
       </div>
+
+      {/* Cover image */}
+      {post.image && (
+        <div className="relative w-full h-72 md:h-96 overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-primary/60" />
+        </div>
+      )}
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
