@@ -19,7 +19,7 @@ export default function AboutPage() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
         <section>
-          <h2 className="font-display text-2xl font-700 text-text-primary mb-4">Canada's Research Compound Source</h2>
+          <h2 className="font-display text-2xl font-700 text-brand-cyan tracking-widest uppercase mb-4">Canada's Research Compound Source</h2>
           <div className="space-y-4 text-text-secondary leading-relaxed">
             <p>
               Popular Peptides was founded to give Canadian researchers reliable, verified access to 
