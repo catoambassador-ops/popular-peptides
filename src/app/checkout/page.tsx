@@ -27,7 +27,19 @@ const initialForm: CheckoutForm = {
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { items, subtotal, shipping, total, clearCart } = useCartStore()
+  const { items, subtotal, shipping, total, clearCart, addItem } = useCartStore()
+
+  const addBacWater = () => {
+    addItem({
+      productId: 'bac-water-30ml',
+      variantId: 'bacwater-30ml',
+      productName: 'Bacteriostatic Water 30ml',
+      variantName: '30ml',
+      price: 1499,
+      quantity: 1,
+      slug: 'bacteriostatic-water-30ml',
+    })
+  }
   const [form, setForm] = useState<CheckoutForm>(initialForm)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -151,12 +163,13 @@ export default function CheckoutPage() {
                       Your order contains lyophilised peptides that require reconstitution before use. Bacteriostatic water is needed to prepare your compounds.
                     </p>
                   </div>
-                  <Link
-                    href="/products/bacteriostatic-water-30ml"
+                  <button
+                    type="button"
+                    onClick={addBacWater}
                     className="flex-shrink-0 font-mono text-xs text-brand-cyan border border-brand-cyan px-3 py-1.5 hover:bg-brand-cyan hover:text-bg-primary transition-colors whitespace-nowrap"
                   >
-                    Add to Cart
-                  </Link>
+                    + Add BAC Water
+                  </button>
                 </div>
               )}
 
