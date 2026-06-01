@@ -113,7 +113,7 @@ export function Navbar() {
                 <div className="font-display text-lg font-700 text-text-primary tracking-widest uppercase">
                   POPULAR
                 </div>
-                <div className="font-display text-[10px] font-500 text-brand-cyan tracking-[0.3em] uppercase -mt-0.5">
+                <div className="font-display text-xs font-600 text-brand-cyan tracking-[0.2em] uppercase">
                   PEPTIDES
                 </div>
               </div>

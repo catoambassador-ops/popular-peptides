@@ -66,7 +66,7 @@ export function Footer() {
               </div>
               <div className="leading-none">
                 <div className="font-display text-base font-700 text-text-primary tracking-widest uppercase">POPULAR</div>
-                <div className="font-display text-[9px] font-500 text-brand-cyan tracking-[0.3em] uppercase -mt-0.5">PEPTIDES</div>
+                <div className="font-display text-xs font-600 text-brand-cyan tracking-[0.2em] uppercase">PEPTIDES</div>
               </div>
             </Link>
             
