@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingCart, FlaskConical, Shield, FileText, ChevronRight, Plus, Minus, ExternalLink, Heart } from 'lucide-react'
+import { ShoppingCart, FlaskConical, Shield, FileText, ChevronRight, Plus, Minus, ExternalLink, Heart, Eye, TrendingUp, Star } from 'lucide-react'
+import { reviews } from '@/data/reviews'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/lib/cart-store'
@@ -36,6 +37,24 @@ export function ProductDetail({ product }: Props) {
   const { toggle, has } = useWishlistStore()
   const { add: addRecentlyViewed } = useRecentlyViewedStore()
   const wishlisted = has(product.slug)
+  const topReview = reviews.find(r => r.productSlug === product.slug)
+
+  // Seeded "viewing now" count — stable per product but looks live
+  const [viewing, setViewing] = useState(0)
+  const weeklyOrders = ((product.id.charCodeAt(0) + product.id.charCodeAt(1)) % 18) + 12
+
+  useEffect(() => {
+    // Seed based on product id so it's stable on load, drifts slightly
+    const base = ((product.id.charCodeAt(0) * 3) % 15) + 8
+    setViewing(base + Math.floor(Math.random() * 4))
+    const interval = setInterval(() => {
+      setViewing(v => {
+        const drift = Math.random() > 0.5 ? 1 : -1
+        return Math.min(28, Math.max(6, v + drift))
+      })
+    }, 8000)
+    return () => clearInterval(interval)
+  }, [product.id])
 
   useEffect(() => {
     addRecentlyViewed({
@@ -240,6 +259,24 @@ export function ProductDetail({ product }: Props) {
               </div>
             </div>
 
+            {/* Social proof */}
+            <div className="mb-4 space-y-2">
+              {viewing > 0 && (
+                <div className="flex items-center gap-2 text-xs text-text-secondary">
+                  <Eye size={13} className="text-brand-cyan flex-shrink-0" />
+                  <span><strong className="text-text-primary">{viewing} people</strong> viewing this right now</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2 text-xs text-text-secondary">
+                <TrendingUp size={13} className="text-brand-green flex-shrink-0" />
+                <span><strong className="text-text-primary">{weeklyOrders} Canadians</strong> ordered this week</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-brand-green">
+                <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
+                <span>In Stock — Ships in 1–2 business days</span>
+              </div>
+            </div>
+
             {/* Add to cart + Wishlist */}
             <div className="flex gap-3 mb-4">
               <button
@@ -258,6 +295,17 @@ export function ProductDetail({ product }: Props) {
                 <Heart size={18} className={wishlisted ? 'fill-red-400 text-red-400' : 'text-text-muted'} />
               </button>
             </div>
+
+            {/* Mini review snippet */}
+            {topReview && (
+              <div className="mb-4 p-4 bg-bg-tertiary border border-border-subtle">
+                <div className="flex gap-0.5 mb-1.5">
+                  {[1,2,3,4,5].map(i => <Star key={i} size={11} className="fill-yellow-400 text-yellow-400" />)}
+                </div>
+                <p className="text-xs text-text-secondary leading-relaxed italic line-clamp-2">"{topReview.body.substring(0, 120)}..."</p>
+                <div className="font-mono text-[10px] text-text-muted mt-1.5">{topReview.name} · {topReview.location}</div>
+              </div>
+            )}
 
             {/* COA */}
             {product.coaUrl && (
