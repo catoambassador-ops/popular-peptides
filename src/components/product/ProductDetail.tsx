@@ -9,6 +9,7 @@ import { formatPrice } from '@/lib/utils'
 import { useCartStore } from '@/lib/cart-store'
 import { useWishlistStore } from '@/lib/wishlist-store'
 import { useRecentlyViewedStore } from '@/lib/recently-viewed-store'
+import { trackEvent } from '@/components/Analytics'
 import toast from 'react-hot-toast'
 
 interface Props {
@@ -59,6 +60,11 @@ export function ProductDetail({ product }: Props) {
       price: discountedPrice,
       quantity,
       slug: product.slug,
+    })
+    trackEvent('add_to_cart', {
+      currency: 'CAD',
+      value: (discountedPrice * quantity) / 100,
+      items: [{ item_id: product.id, item_name: product.name, quantity, price: discountedPrice / 100 }],
     })
     toast.success(`Added to cart`)
     openCart()

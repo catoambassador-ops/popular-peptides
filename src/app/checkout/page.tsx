@@ -8,7 +8,10 @@ import { useCartStore } from '@/lib/cart-store'
 import { formatPrice, PROVINCES, calculateTax, PROVINCE_TAX_RATES } from '@/lib/utils'
 import { getPromoCode } from '@/lib/promo-codes'
 import { saveOrderToHistory } from '@/lib/order-store'
+import { trackEvent } from '@/components/Analytics'
 import { CheckoutForm } from '@/types'
+
+const ABANDONED_EMAIL_KEY = 'pp-abandoned-email'
 
 const SAVED_ADDRESS_KEY = 'pp-saved-address'
 
@@ -72,10 +75,19 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     const saved = getSavedAddress()
-    if (saved && saved.firstName) {
-      setHasSavedAddress(true)
-    }
+    if (saved && saved.firstName) setHasSavedAddress(true)
+    // Fire checkout_start event
+    trackEvent('begin_checkout', { currency: 'CAD', value: subtotal() / 100 })
   }, [])
+
+  // Save email for abandonment tracking as soon as it's typed
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value
+    setForm(prev => ({ ...prev, email }))
+    if (email.includes('@')) {
+      localStorage.setItem(ABANDONED_EMAIL_KEY, JSON.stringify({ email, cartValue: subtotal(), timestamp: Date.now() }))
+    }
+  }
 
   const applySavedAddress = () => {
     const saved = getSavedAddress()
@@ -146,6 +158,15 @@ export default function CheckoutPage() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to place order')
 
+      // Track purchase + clear abandoned email
+      localStorage.removeItem(ABANDONED_EMAIL_KEY)
+      trackEvent('purchase', {
+        transaction_id: data.orderNumber,
+        currency: 'CAD',
+        value: grandTotal / 100,
+        coupon: appliedPromo?.code ?? '',
+        items: items.map(item => ({ item_id: item.productId, item_name: item.productName, quantity: item.quantity, price: item.price / 100 })),
+      })
       saveAddress(form)
       saveOrderToHistory({
         orderNumber: data.orderNumber,
@@ -267,7 +288,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block font-mono text-xs text-text-muted tracking-widest uppercase mb-2">Email *</label>
-                    <input required type="email" className="input-field" value={form.email} onChange={set('email')} />
+                    <input required type="email" className="input-field" value={form.email} onChange={handleEmailChange} />
                   </div>
                   <div>
                     <label className="block font-mono text-xs text-text-muted tracking-widest uppercase mb-2">Phone</label>
