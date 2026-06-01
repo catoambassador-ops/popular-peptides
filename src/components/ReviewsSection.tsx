@@ -27,7 +27,7 @@ export function ReviewsSection() {
                 {[1,2,3,4,5].map(i => <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />)}
               </div>
               <span className="font-display text-lg font-700 text-text-primary">5.0</span>
-              <span className="font-mono text-xs text-text-muted">· {featured.length}+ verified reviews</span>
+              <span className="font-mono text-xs text-text-muted">· 15+ verified reviews</span>
             </div>
           </div>
           <Link href="/reviews" className="hidden sm:flex items-center gap-1 text-sm text-brand-cyan hover:text-brand-cyan-dim transition-colors font-mono">
