@@ -1,6 +1,98 @@
 import { Product } from '@/types'
 
 export const products: Product[] = [
+  // ─── FEATURED ─────────────────────────────────────────────────────────────
+  {
+    id: 'complete-stack',
+    slug: 'complete-stack',
+    name: 'Complete Stack',
+    shortName: 'Complete Stack',
+    category: 'peptides',
+    subcategory: 'bundle',
+    description: `The Popular Peptides Complete Stack bundles our most sought-after research compounds into a single, convenient package. Designed for researchers looking to explore multiple peptide pathways, this curated set includes compounds studied across tissue regeneration, metabolic function, and cellular health.\n\nAll compounds are GMP-manufactured, independently third-party tested, and accompanied by a full Certificate of Analysis. Everything you need to begin your research protocol in one order.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
+    shortDescription: 'Curated bundle of Popular Peptides top research compounds. Everything you need in one order.',
+    images: [
+      { url: '/images/products/completestack.jpg', alt: 'Popular Peptides Complete Stack' }
+    ],
+    variants: [
+      { id: 'complete-stack-1', name: 'Complete Stack', price: 29999, sku: 'PP-STACK-1', inStock: true },
+    ],
+    tags: ['research', 'bundle', 'stack', 'peptide'],
+    researchAreas: ['tissue-regeneration', 'metabolic', 'cellular-longevity'],
+    purity: '≥99%',
+    featured: true,
+    badge: 'Best Value',
+    createdAt: '2024-06-01',
+    updatedAt: '2024-06-01',
+  },
+  {
+    id: 'retatrutide',
+    slug: 'retatrutide',
+    name: 'Retatrutide',
+    shortName: 'Retatrutide',
+    category: 'peptides',
+    subcategory: 'metabolic',
+    description: `Retatrutide is a novel triple agonist peptide targeting GIP, GLP-1, and glucagon receptors simultaneously. It represents the next generation of metabolic research compounds, with preclinical studies exploring its effects on energy expenditure, glucose regulation, and body composition.\n\nAs a triagonist, it activates three complementary pathways — making it a subject of significant interest in obesity and metabolic disorder research.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
+    shortDescription: 'Triple receptor agonist (GIP/GLP-1/Glucagon) studied for metabolic and weight management research.',
+    images: [
+      { url: '/images/products/retatrutide10mg.jpg', alt: 'Retatrutide 10mg vial' }
+    ],
+    variants: [
+      { id: 'retatrutide-10mg', name: '10mg', price: 14999, sku: 'PP-RETA-10', inStock: true },
+    ],
+    tags: ['research', 'peptide', 'metabolic', 'glp-1', 'weight'],
+    researchAreas: ['metabolic', 'weight-management'],
+    purity: '≥99%',
+    molecularWeight: '4759.5 g/mol',
+    featured: true,
+    badge: 'New',
+    createdAt: '2024-06-01',
+    updatedAt: '2024-06-01',
+  },
+  {
+    id: 'kglow',
+    slug: 'kglow',
+    name: 'KGLOW',
+    shortName: 'KGLOW',
+    category: 'peptides',
+    subcategory: 'skin',
+    description: `KLOW is a research-grade peptide compound studied for its potential effects on skin health, collagen synthesis, and dermal regeneration. Preclinical research has explored its role in promoting skin elasticity, reducing oxidative stress at the cellular level, and supporting wound repair in dermal tissue models.\n\nResearchers have investigated KLOW for its interactions with fibroblast activity and its potential to upregulate extracellular matrix proteins associated with skin structure and resilience.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
+    shortDescription: 'Research peptide studied for skin regeneration, collagen synthesis, and dermal health applications.',
+    images: [
+      { url: '/images/products/KGLOW80mg.jpg', alt: 'KGLOW 80mg vial' }
+    ],
+    variants: [
+      { id: 'kglow-80mg', name: '80mg', price: 9999, sku: 'PP-KGLOW-80', inStock: true },
+    ],
+    tags: ['research', 'peptide', 'skin', 'collagen', 'dermal'],
+    researchAreas: ['skin', 'cellular-longevity'],
+    purity: '≥99%',
+    featured: true,
+    badge: 'New',
+    createdAt: '2024-06-01',
+    updatedAt: '2024-06-01',
+  },
+  {
+    id: 'bac-water-30ml',
+    slug: 'bacteriostatic-water-30ml',
+    name: 'Bacteriostatic Water 30ml',
+    shortName: 'BAC Water 30ml',
+    category: 'accessories',
+    description: `Sterile 0.9% benzyl alcohol bacteriostatic water in a 30ml multi-dose vial. Suitable for reconstituting lyophilized research peptides.\n\nSterile, USP-grade benzyl alcohol preservative. Suitable for multi-dose reconstitution applications in research settings.`,
+    shortDescription: 'USP-grade sterile bacteriostatic water for peptide reconstitution. 30ml multi-dose vial.',
+    images: [
+      { url: '/images/products/bacwater30ml.jpg', alt: 'Bacteriostatic water 30ml vial' }
+    ],
+    variants: [
+      { id: 'bacwater-30ml', name: '30ml', price: 1499, sku: 'PP-BACW-30', inStock: true },
+    ],
+    tags: ['accessories', 'reconstitution', 'bac water'],
+    researchAreas: [],
+    featured: true,
+    createdAt: '2024-01-01',
+    updatedAt: '2024-06-01',
+  },
+
   // ─── PEPTIDES ─────────────────────────────────────────────────────────────
   {
     id: 'bpc-157',
@@ -77,7 +169,6 @@ export const products: Product[] = [
     molecularWeight: '751.86 g/mol',
     casNumber: '129954-34-3',
     featured: false,
-    badge: 'New',
     createdAt: '2024-03-01',
     updatedAt: '2024-06-01',
   },
@@ -177,32 +268,11 @@ export const products: Product[] = [
     molecularWeight: '390.35 g/mol',
     casNumber: '307297-39-8',
     featured: false,
-    badge: 'New',
     createdAt: '2024-05-01',
     updatedAt: '2024-06-01',
   },
 
   // ─── ACCESSORIES ──────────────────────────────────────────────────────────
-  {
-    id: 'bac-water-30ml',
-    slug: 'bacteriostatic-water-30ml',
-    name: 'Bacteriostatic Water 30ml',
-    shortName: 'BAC Water 30ml',
-    category: 'accessories',
-    description: `Sterile 0.9% benzyl alcohol bacteriostatic water in a 30ml multi-dose vial. Suitable for reconstituting lyophilized research peptides.\n\nSterile, USP-grade benzyl alcohol preservative. Suitable for multi-dose reconstitution applications in research settings.`,
-    shortDescription: 'USP-grade sterile bacteriostatic water for peptide reconstitution. 30ml multi-dose vial.',
-    images: [
-      { url: '/images/products/bacwater30ml.jpg', alt: 'Bacteriostatic water 30ml vial' }
-    ],
-    variants: [
-      { id: 'bacwater-30ml', name: '30ml', price: 1499, sku: 'PP-BACW-30', inStock: true },
-    ],
-    tags: ['accessories', 'reconstitution', 'bac water'],
-    researchAreas: [],
-    featured: true,
-    createdAt: '2024-01-01',
-    updatedAt: '2024-06-01',
-  },
   {
     id: 'insulin-syringes',
     slug: 'insulin-syringes-100-pack',
@@ -221,76 +291,6 @@ export const products: Product[] = [
     researchAreas: [],
     featured: false,
     createdAt: '2024-01-01',
-    updatedAt: '2024-06-01',
-  },
-  {
-    id: 'retatrutide',
-    slug: 'retatrutide',
-    name: 'Retatrutide',
-    shortName: 'Retatrutide',
-    category: 'peptides',
-    subcategory: 'metabolic',
-    description: `Retatrutide is a novel triple agonist peptide targeting GIP, GLP-1, and glucagon receptors simultaneously. It represents the next generation of metabolic research compounds, with preclinical studies exploring its effects on energy expenditure, glucose regulation, and body composition.\n\nAs a triagonist, it activates three complementary pathways — making it a subject of significant interest in obesity and metabolic disorder research.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
-    shortDescription: 'Triple receptor agonist (GIP/GLP-1/Glucagon) studied for metabolic and weight management research.',
-    images: [
-      { url: '/images/products/retatrutide10mg.jpg', alt: 'Retatrutide 10mg vial' }
-    ],
-    variants: [
-      { id: 'retatrutide-10mg', name: '10mg', price: 14999, sku: 'PP-RETA-10', inStock: true },
-    ],
-    tags: ['research', 'peptide', 'metabolic', 'glp-1', 'weight'],
-    researchAreas: ['metabolic', 'weight-management'],
-    purity: '≥99%',
-    molecularWeight: '4759.5 g/mol',
-    featured: true,
-    badge: 'New',
-    createdAt: '2024-06-01',
-    updatedAt: '2024-06-01',
-  },
-  {
-    id: 'kglow',
-    slug: 'kglow',
-    name: 'KGLOW',
-    shortName: 'KGLOW',
-    category: 'peptides',
-    subcategory: 'skin',
-    description: `KLOW is a research-grade peptide compound studied for its potential effects on skin health, collagen synthesis, and dermal regeneration. Preclinical research has explored its role in promoting skin elasticity, reducing oxidative stress at the cellular level, and supporting wound repair in dermal tissue models.\n\nResearchers have investigated KLOW for its interactions with fibroblast activity and its potential to upregulate extracellular matrix proteins associated with skin structure and resilience.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
-    shortDescription: 'Research peptide studied for skin regeneration, collagen synthesis, and dermal health applications.',
-    images: [
-      { url: '/images/products/KGLOW80mg.jpg', alt: 'KGLOW 80mg vial' }
-    ],
-    variants: [
-      { id: 'kglow-80mg', name: '80mg', price: 9999, sku: 'PP-KGLOW-80', inStock: true },
-    ],
-    tags: ['research', 'peptide', 'skin', 'collagen', 'dermal'],
-    researchAreas: ['skin', 'cellular-longevity'],
-    purity: '≥99%',
-    featured: true,
-    badge: 'New',
-    createdAt: '2024-06-01',
-    updatedAt: '2024-06-01',
-  },
-  {
-    id: 'complete-stack',
-    slug: 'complete-stack',
-    name: 'Complete Stack',
-    shortName: 'Complete Stack',
-    category: 'peptides',
-    subcategory: 'bundle',
-    description: `The Popular Peptides Complete Stack bundles our most sought-after research compounds into a single, convenient package. Designed for researchers looking to explore multiple peptide pathways, this curated set includes compounds studied across tissue regeneration, metabolic function, and cellular health.\n\nAll compounds are GMP-manufactured, independently third-party tested, and accompanied by a full Certificate of Analysis. Everything you need to begin your research protocol in one order.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
-    shortDescription: 'Curated bundle of Popular Peptides top research compounds. Everything you need in one order.',
-    images: [
-      { url: '/images/products/completestack.jpg', alt: 'Popular Peptides Complete Stack' }
-    ],
-    variants: [
-      { id: 'complete-stack-1', name: 'Complete Stack', price: 29999, sku: 'PP-STACK-1', inStock: true },
-    ],
-    tags: ['research', 'bundle', 'stack', 'peptide'],
-    researchAreas: ['tissue-regeneration', 'metabolic', 'cellular-longevity'],
-    purity: '≥99%',
-    featured: true,
-    badge: 'Best Value',
-    createdAt: '2024-06-01',
     updatedAt: '2024-06-01',
   },
 ]
