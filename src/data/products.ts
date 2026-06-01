@@ -256,7 +256,7 @@ export const products: Product[] = [
     description: `Tirzepatide is a dual GIP and GLP-1 receptor agonist that has been extensively studied for its effects on glucose homeostasis and body weight regulation. As a twincretin, it activates two complementary incretin pathways simultaneously.\n\nResearch has investigated its effects on insulin secretion, glucagon suppression, gastric emptying, and appetite regulation. It represents a significant advancement in the study of incretin-based metabolic therapies.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
     shortDescription: 'Dual GIP/GLP-1 receptor agonist studied for metabolic regulation and body weight research.',
     images: [{ url: '/images/products/peptide-vial-2.jpg', alt: 'Tirzepatide 10mg vial' }],
-    variants: [{ id: 'tirz-10mg', name: '10mg', price: 4500, sku: 'PP-TIRZ-10', inStock: true }],
+    variants: [{ id: "tirz-10mg", name: "10mg", price: 5999, sku: 'PP-TIRZ-10', inStock: true }],
     tags: ['research', 'peptide', 'metabolic', 'glp-1', 'gip', 'weight'],
     researchAreas: ['metabolic', 'weight-management'],
     purity: '≥99%',
