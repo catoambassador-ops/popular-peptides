@@ -175,7 +175,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Breadcrumb */}
       <div className="border-b border-border-subtle bg-bg-secondary/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 font-mono text-xs text-text-muted">
+          <nav className="flex items-center gap-2 font-display text-sm font-600 text-text-muted">
             <Link href="/" className="hover:text-text-secondary transition-colors">Home</Link>
             <ChevronRight size={12} />
             <Link href="/blog" className="hover:text-text-secondary transition-colors">Blog</Link>

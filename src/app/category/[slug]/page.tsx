@@ -36,7 +36,7 @@ export default function CategoryPage({ params }: Props) {
     <div className="min-h-screen pt-20">
       <div className="border-b border-border-subtle bg-bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <nav className="flex items-center gap-2 font-mono text-xs text-text-muted mb-3">
+          <nav className="flex items-center gap-2 font-display text-sm font-600 text-text-muted mb-3">
             <Link href="/">Home</Link>
             <ChevronRight size={12} />
             <Link href="/products">Products</Link>

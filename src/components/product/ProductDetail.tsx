@@ -94,16 +94,16 @@ export function ProductDetail({ product }: Props) {
       {/* Breadcrumb */}
       <div className="border-b border-border-subtle bg-bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 font-mono text-xs text-text-muted">
-            <Link href="/" className="hover:text-text-secondary transition-colors">Home</Link>
-            <ChevronRight size={12} />
-            <Link href="/products" className="hover:text-text-secondary transition-colors">Products</Link>
-            <ChevronRight size={12} />
-            <Link href={`/category/${product.category}`} className="hover:text-text-secondary transition-colors capitalize">
+          <nav className="flex items-center gap-2 font-display text-sm font-600 text-text-muted">
+            <Link href="/" className="hover:text-text-primary transition-colors">Home</Link>
+            <ChevronRight size={14} />
+            <Link href="/products" className="hover:text-text-primary transition-colors">Products</Link>
+            <ChevronRight size={14} />
+            <Link href={`/category/${product.category}`} className="hover:text-text-primary transition-colors capitalize">
               {product.category}
             </Link>
-            <ChevronRight size={12} />
-            <span className="text-text-secondary">{product.name}</span>
+            <ChevronRight size={14} />
+            <span className="text-text-primary font-700">{product.name}</span>
           </nav>
         </div>
       </div>
