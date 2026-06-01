@@ -280,63 +280,62 @@ export function Navbar() {
 
       {/* Search overlay */}
       {searchOpen && (
-        <div className="fixed inset-0 z-[60] flex flex-col">
+        <div className="fixed inset-0 z-[60]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-bg-primary/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"
             onClick={() => setSearchOpen(false)}
           />
 
-          {/* Search panel */}
-          <div className="relative z-10 bg-bg-secondary border-b border-border-default shadow-[0_8px_40px_rgba(0,0,0,0.4)] mt-[88px]">
-            <div className="max-w-3xl mx-auto px-4 py-4">
-              <form onSubmit={handleSearchSubmit} className="flex items-center gap-3">
-                <Search size={20} className="text-brand-cyan flex-shrink-0" />
+          {/* Search panel — compact dropdown from top right */}
+          <div className="absolute right-4 sm:right-8 top-[76px] w-full max-w-sm z-10">
+            <div className="bg-bg-secondary border border-border-default shadow-[0_8px_30px_rgba(0,0,0,0.2)] rounded-sm overflow-hidden">
+              <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 px-3 py-2.5 border-b border-border-subtle">
+                <Search size={14} className="text-brand-cyan flex-shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search products..."
-                  className="flex-1 bg-transparent text-text-primary placeholder-text-muted font-body text-lg outline-none"
+                  className="flex-1 bg-transparent text-text-primary placeholder-text-muted font-body text-sm outline-none"
                 />
-                {searchQuery && (
+                {searchQuery ? (
                   <button type="button" onClick={() => setSearchQuery('')}>
-                    <X size={16} className="text-text-muted hover:text-text-primary" />
+                    <X size={13} className="text-text-muted hover:text-text-primary" />
                   </button>
+                ) : (
+                  <span className="font-mono text-[10px] text-text-muted border border-border-subtle px-1.5 py-0.5">ESC</span>
                 )}
-                <button type="button" onClick={() => setSearchOpen(false)}>
-                  <span className="font-mono text-xs text-text-muted border border-border-subtle px-2 py-1">ESC</span>
-                </button>
               </form>
 
               {/* Results */}
               {searchResults.length > 0 && (
-                <div className="mt-4 border-t border-border-subtle pt-4 space-y-1 pb-2">
+                <div className="py-1 max-h-72 overflow-y-auto">
                   {searchResults.map(product => (
                     <Link
                       key={product.slug}
                       href={`/products/${product.slug}`}
                       onClick={() => setSearchOpen(false)}
-                      className="flex items-center justify-between px-3 py-3 hover:bg-bg-tertiary rounded transition-colors group"
+                      className="flex items-center justify-between px-3 py-2.5 hover:bg-bg-tertiary transition-colors group"
                     >
                       <div>
-                        <div className="font-display text-sm font-700 text-text-primary group-hover:text-brand-cyan transition-colors">
+                        <div className="font-display text-xs font-700 text-text-primary group-hover:text-brand-cyan transition-colors">
                           {product.name}
                         </div>
-                        <div className="font-mono text-xs text-text-muted mt-0.5">
-                          {product.variants[0]?.name} — CAD ${(product.variants[0]?.price / 100).toFixed(2)}
+                        <div className="font-mono text-[10px] text-text-muted mt-0.5">
+                          {product.variants[0]?.name} · CAD ${(product.variants[0]?.price / 100).toFixed(2)}
                         </div>
                       </div>
-                      <ArrowRight size={14} className="text-text-muted group-hover:text-brand-cyan transition-colors" />
+                      <ArrowRight size={12} className="text-text-muted group-hover:text-brand-cyan transition-colors" />
                     </Link>
                   ))}
                 </div>
               )}
 
               {searchQuery.length > 1 && searchResults.length === 0 && (
-                <div className="mt-4 border-t border-border-subtle pt-4 pb-2 text-center font-mono text-sm text-text-muted">
-                  No products found for "{searchQuery}"
+                <div className="px-3 py-3 text-center font-mono text-xs text-text-muted">
+                  No results for "{searchQuery}"
                 </div>
               )}
             </div>
