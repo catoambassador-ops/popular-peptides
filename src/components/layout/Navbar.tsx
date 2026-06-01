@@ -195,9 +195,7 @@ export function Navbar() {
                 )}
               </button>
 
-              <Link href="/account" className="hidden sm:block btn-outline py-2 text-xs">
-                Account
-              </Link>
+              {/* Account button hidden */}
 
               {/* Mobile menu */}
               <button

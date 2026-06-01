@@ -118,7 +118,7 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <span className="font-mono text-[11px] text-text-muted">E-Transfer</span>
             <span className="text-text-muted text-[11px]">·</span>
-            <span className="font-mono text-[11px] text-brand-cyan">Mobopay Ready</span>
+            
           </div>
         </div>
       </div>

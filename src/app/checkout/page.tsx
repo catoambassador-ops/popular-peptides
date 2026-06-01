@@ -224,19 +224,6 @@ export default function CheckoutPage() {
                     </div>
                   </label>
 
-                  {/* Mobopay */}
-                  <label className={`block cursor-not-allowed border p-4 opacity-60 border-border-subtle`}>
-                    <div className="flex items-start gap-3">
-                      <input type="radio" name="paymentMethod" value="mobopay" disabled className="mt-1" />
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-display text-sm font-700 text-text-secondary tracking-wide">Mobopay</span>
-                          <span className="font-mono text-[10px] tracking-widest text-text-muted border border-border-subtle px-2 py-0.5">COMING SOON</span>
-                        </div>
-                        <div className="text-xs text-text-muted mt-1">Credit card processing will be available soon.</div>
-                      </div>
-                    </div>
-                  </label>
                 </div>
               </div>
 

@@ -242,14 +242,11 @@ export default function HomePage() {
           <p className="text-text-secondary max-w-xl mx-auto mb-6">
             We currently accept Interac E-Transfer to{' '}
             <a href="mailto:sales@popularpeptides.ca" className="text-brand-cyan">sales@popularpeptides.ca</a>.
-            Credit card processing via Mobopay coming soon.
+            After placing your order, you'll receive payment instructions by email.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="px-5 py-2.5 border border-border-bright bg-bg-elevated font-mono text-sm text-brand-cyan tracking-wide">
               INTERAC E-TRANSFER
-            </div>
-            <div className="px-5 py-2.5 border border-border-subtle bg-bg-elevated font-mono text-sm text-text-muted tracking-wide">
-              MOBOPAY — COMING SOON
             </div>
           </div>
         </div>

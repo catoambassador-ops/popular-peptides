@@ -78,7 +78,7 @@ async function sendOrderEmails(order: any) {
         <p style="margin:4px 0;">Message/Note: <strong>${order.orderNumber}</strong></p>
         <p style="margin:16px 0 4px;color:#8892A4;font-size:13px;">Your order will be processed once payment is confirmed. You'll receive a confirmation email within 1 business day.</p>
       </div>
-    ` : `<p style="color:#8892A4;">Payment will be processed via Mobopay.</p>`
+    ` : `<p style="color:#8892A4;">Payment details will be provided via email.</p>`
 
     // Email to customer
     await transporter.sendMail({
@@ -150,7 +150,7 @@ async function sendOrderEmails(order: any) {
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;">
           <h2>New Order: ${order.orderNumber}</h2>
-          <p><strong>Payment:</strong> ${order.paymentMethod === 'etransfer' ? 'E-Transfer' : 'Mobopay'}</p>
+          <p><strong>Payment:</strong> E-Transfer</p>
           <p><strong>Total:</strong> $${(order.total / 100).toFixed(2)} CAD</p>
           <h3>Customer</h3>
           <p>${order.shippingAddress.firstName} ${order.shippingAddress.lastName}<br>
