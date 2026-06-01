@@ -192,7 +192,7 @@ export const products: Product[] = [
     description: `Sterile 0.9% benzyl alcohol bacteriostatic water in a 30ml multi-dose vial. Suitable for reconstituting lyophilized research peptides.\n\nSterile, USP-grade benzyl alcohol preservative. Suitable for multi-dose reconstitution applications in research settings.`,
     shortDescription: 'USP-grade sterile bacteriostatic water for peptide reconstitution. 30ml multi-dose vial.',
     images: [
-      { url: '/images/products/bac-water.jpg', alt: 'Bacteriostatic water 30ml vial' }
+      { url: '/images/products/bacwater30ml.jpg', alt: 'Bacteriostatic water 30ml vial' }
     ],
     variants: [
       { id: 'bacwater-30ml', name: '30ml', price: 1499, sku: 'PP-BACW-30', inStock: true },
@@ -267,6 +267,29 @@ export const products: Product[] = [
     purity: '≥99%',
     featured: true,
     badge: 'New',
+    createdAt: '2024-06-01',
+    updatedAt: '2024-06-01',
+  },
+  {
+    id: 'complete-stack',
+    slug: 'complete-stack',
+    name: 'Complete Stack',
+    shortName: 'Complete Stack',
+    category: 'peptides',
+    subcategory: 'bundle',
+    description: `The Popular Peptides Complete Stack bundles our most sought-after research compounds into a single, convenient package. Designed for researchers looking to explore multiple peptide pathways, this curated set includes compounds studied across tissue regeneration, metabolic function, and cellular health.\n\nAll compounds are GMP-manufactured, independently third-party tested, and accompanied by a full Certificate of Analysis. Everything you need to begin your research protocol in one order.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
+    shortDescription: 'Curated bundle of Popular Peptides top research compounds. Everything you need in one order.',
+    images: [
+      { url: '/images/products/completestack.jpg', alt: 'Popular Peptides Complete Stack' }
+    ],
+    variants: [
+      { id: 'complete-stack-1', name: 'Complete Stack', price: 29999, sku: 'PP-STACK-1', inStock: true },
+    ],
+    tags: ['research', 'bundle', 'stack', 'peptide'],
+    researchAreas: ['tissue-regeneration', 'metabolic', 'cellular-longevity'],
+    purity: '≥99%',
+    featured: true,
+    badge: 'Best Value',
     createdAt: '2024-06-01',
     updatedAt: '2024-06-01',
   },
