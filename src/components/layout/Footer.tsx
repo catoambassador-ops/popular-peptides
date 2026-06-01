@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { FlaskConical, Mail, Instagram, Twitter } from 'lucide-react'
+import Image from 'next/image'
+import { Mail, Instagram, Twitter } from 'lucide-react'
 
 const footerLinks = {
   Shop: [
@@ -55,8 +56,13 @@ export function Footer() {
           {/* Brand col */}
           <div className="md:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-brand-cyan flex items-center justify-center">
-                <FlaskConical size={16} className="text-bg-primary" strokeWidth={2.5} />
+              <div className="w-10 h-7 relative overflow-hidden rounded-sm shadow-sm flex-shrink-0">
+                <Image
+                  src="/images/branding/canadaflag.jpg"
+                  alt="Canada flag"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="leading-none">
                 <div className="font-display text-base font-700 text-text-primary tracking-widest uppercase">POPULAR</div>
