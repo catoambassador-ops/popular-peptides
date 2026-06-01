@@ -110,10 +110,10 @@ export function Navbar() {
                 />
               </div>
               <div className="leading-none">
-                <div className="font-display text-lg font-700 text-text-primary tracking-widest uppercase">
+                <div className="font-display text-lg font-700 text-text-primary tracking-widest uppercase leading-tight">
                   POPULAR
                 </div>
-                <div className="font-display text-xs font-600 text-brand-cyan tracking-[0.2em] uppercase">
+                <div className="font-display text-xs font-600 text-brand-cyan tracking-[0.2em] uppercase leading-tight -mt-0.5">
                   PEPTIDES
                 </div>
               </div>
