@@ -16,7 +16,7 @@ const faqs = [
       },
       {
         q: 'How long does it take to confirm my e-transfer?',
-        a: 'E-transfers are typically confirmed within a few hours during business hours (Mon–Fri, 9am–5pm PST). You\'ll receive an email confirmation once payment is received and your order moves to processing.',
+        a: 'E-transfers are typically confirmed within a few hours. You\'ll receive an email confirmation once payment is received and your order moves to processing.',
       },
       {
         q: 'Can I cancel or modify my order?',
