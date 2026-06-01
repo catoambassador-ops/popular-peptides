@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart, FlaskConical } from 'lucide-react'
 import { Product } from '@/types'
 import { formatPrice } from '@/lib/utils'
@@ -50,19 +51,22 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     >
       {/* Image / visual placeholder */}
       <div className="relative aspect-square bg-bg-tertiary border-b border-border-subtle overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative flex flex-col items-center gap-2">
-            <div className="w-16 h-24 bg-bg-elevated border border-border-bright flex items-center justify-center shadow-cyan-sm group-hover:shadow-cyan-md transition-shadow">
+        {product.images?.[0] ? (
+          <Image
+            src={product.images[0].url}
+            alt={product.images[0].alt}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+        ) : (
+          <>
+            <div className="absolute inset-0 grid-bg" />
+            <div className="absolute inset-0 flex items-center justify-center">
               <FlaskConical size={24} className="text-brand-cyan" strokeWidth={1.5} />
             </div>
-            {product.purity && (
-              <div className="font-mono text-[10px] text-brand-cyan tracking-widest opacity-60">
-                {product.purity}
-              </div>
-            )}
-          </div>
-        </div>
+          </>
+        )}
 
         {/* Badge */}
         {product.badge && (
