@@ -83,14 +83,7 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="flex items-center gap-3">
-              <a href="#" className="w-8 h-8 border border-border-default flex items-center justify-center text-text-secondary hover:border-brand-cyan hover:text-brand-cyan transition-all">
-                <Instagram size={15} />
-              </a>
-              <a href="#" className="w-8 h-8 border border-border-default flex items-center justify-center text-text-secondary hover:border-brand-cyan hover:text-brand-cyan transition-all">
-                <Twitter size={15} />
-              </a>
-            </div>
+{/* Social links hidden */}
           </div>
 
           {/* Links */}
