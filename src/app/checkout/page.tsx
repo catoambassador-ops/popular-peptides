@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronRight, AlertCircle, FlaskConical, MapPin } from 'lucide-react'
+import { ChevronRight, AlertCircle, FlaskConical, MapPin, Tag } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
 import { formatPrice, PROVINCES, calculateTax, PROVINCE_TAX_RATES } from '@/lib/utils'
+import { getPromoCode } from '@/lib/promo-codes'
+import { saveOrderToHistory } from '@/lib/order-store'
 import { CheckoutForm } from '@/types'
 
 const SAVED_ADDRESS_KEY = 'pp-saved-address'
@@ -56,6 +58,17 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [hasSavedAddress, setHasSavedAddress] = useState(false)
+  const [promoInput, setPromoInput] = useState('')
+  const [appliedPromo, setAppliedPromo] = useState<{ code: string; discount: number; label: string } | null>(null)
+  const [promoError, setPromoError] = useState('')
+
+  const applyPromo = () => {
+    const code = getPromoCode(promoInput)
+    if (!code) { setPromoError('Invalid promo code.'); return }
+    setAppliedPromo(code)
+    setPromoError('')
+    setPromoInput('')
+  }
 
   useEffect(() => {
     const saved = getSavedAddress()
@@ -134,6 +147,20 @@ export default function CheckoutPage() {
       if (!res.ok) throw new Error(data.error || 'Failed to place order')
 
       saveAddress(form)
+      saveOrderToHistory({
+        orderNumber: data.orderNumber,
+        date: new Date().toISOString(),
+        total: grandTotal,
+        items: items.map(item => ({
+          productId: item.productId,
+          variantId: item.variantId,
+          productName: item.productName,
+          variantName: item.variantName,
+          price: item.price,
+          quantity: item.quantity,
+          slug: item.slug,
+        })),
+      })
       clearCart()
       router.push(`/checkout/confirmation?order=${data.orderNumber}&method=${form.paymentMethod}&total=${grandTotal}`)
     } catch (err: any) {
@@ -143,9 +170,11 @@ export default function CheckoutPage() {
     }
   }
 
-  const tax = calculateTax(subtotal(), shipping(), form.province)
+  const promoDiscount = appliedPromo ? Math.round(subtotal() * appliedPromo.discount) : 0
+  const discountedSubtotal = subtotal() - promoDiscount
+  const tax = calculateTax(discountedSubtotal, shipping(), form.province)
   const taxLabel = PROVINCE_TAX_RATES[form.province]?.label ?? 'Tax'
-  const grandTotal = subtotal() + shipping() + tax
+  const grandTotal = discountedSubtotal + shipping() + tax
 
   const hasPeptides = items.some(item => item.productId !== 'bac-water-30ml' && item.productId !== 'insulin-syringes')
   const hasBacWater = items.some(item => item.productId === 'bac-water-30ml')
@@ -386,6 +415,31 @@ export default function CheckoutPage() {
                     <span>Subtotal</span>
                     <span className="font-mono">{formatPrice(subtotal())}</span>
                   </div>
+                  {/* Promo code */}
+                  {!appliedPromo ? (
+                    <div className="flex gap-2 pt-1">
+                      <input
+                        type="text"
+                        value={promoInput}
+                        onChange={e => { setPromoInput(e.target.value.toUpperCase()); setPromoError('') }}
+                        placeholder="Promo code"
+                        className="input-field py-2 text-xs flex-1"
+                      />
+                      <button type="button" onClick={applyPromo} className="font-mono text-xs px-3 border border-border-default hover:border-brand-cyan hover:text-brand-cyan transition-colors whitespace-nowrap">
+                        Apply
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex justify-between text-sm text-brand-green">
+                      <span className="flex items-center gap-1"><Tag size={12} /> {appliedPromo.code}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono">-{formatPrice(promoDiscount)}</span>
+                        <button type="button" onClick={() => setAppliedPromo(null)} className="text-text-muted hover:text-text-primary text-xs">✕</button>
+                      </div>
+                    </div>
+                  )}
+                  {promoError && <p className="font-mono text-xs text-red-400">{promoError}</p>}
+
                   <div className="flex justify-between text-sm text-text-secondary">
                     <span>Shipping</span>
                     <span className="font-mono">
