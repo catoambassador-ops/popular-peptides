@@ -41,16 +41,22 @@ export function ProductDetail({ product }: Props) {
 
   // Seeded "viewing now" count — stable per product but looks live
   const [viewing, setViewing] = useState(0)
-  const weeklyOrders = ((product.id.charCodeAt(0) + product.id.charCodeAt(1)) % 18) + 12
+  const isFeatured = product.featured
+  const weeklyOrders = isFeatured
+    ? ((product.id.charCodeAt(0) + product.id.charCodeAt(1)) % 25) + 48
+    : ((product.id.charCodeAt(0) + product.id.charCodeAt(1)) % 18) + 12
 
   useEffect(() => {
-    // Seed based on product id so it's stable on load, drifts slightly
-    const base = ((product.id.charCodeAt(0) * 3) % 15) + 8
-    setViewing(base + Math.floor(Math.random() * 4))
+    const base = isFeatured
+      ? ((product.id.charCodeAt(0) * 3) % 20) + 32
+      : ((product.id.charCodeAt(0) * 3) % 15) + 8
+    setViewing(base + Math.floor(Math.random() * 6))
     const interval = setInterval(() => {
       setViewing(v => {
         const drift = Math.random() > 0.5 ? 1 : -1
-        return Math.min(28, Math.max(6, v + drift))
+        const max = isFeatured ? 68 : 28
+        const min = isFeatured ? 28 : 6
+        return Math.min(max, Math.max(min, v + drift))
       })
     }, 8000)
     return () => clearInterval(interval)
