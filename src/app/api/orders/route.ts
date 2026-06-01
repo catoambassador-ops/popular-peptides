@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { generateOrderNumber } from '@/lib/utils'
+import { sendToSheets } from '@/lib/sheets-webhook'
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,8 +32,24 @@ export async function POST(req: NextRequest) {
     // Send email notifications
     await sendOrderEmails(order)
 
-    return NextResponse.json({ 
-      success: true, 
+    // Log to Google Sheets
+    await sendToSheets({
+      type: 'order',
+      timestamp: new Date().toISOString(),
+      email: shippingAddress.email,
+      name: `${shippingAddress.firstName} ${shippingAddress.lastName}`,
+      phone: shippingAddress.phone || '',
+      city: shippingAddress.city,
+      province: shippingAddress.province,
+      orderNumber,
+      total: total / 100,
+      items: items.map((i: any) => `${i.productName} (${i.variantName}) ×${i.quantity}`).join(', '),
+      paymentMethod,
+      status: 'Order Placed',
+    })
+
+    return NextResponse.json({
+      success: true,
       orderNumber,
       orderId,
     })
