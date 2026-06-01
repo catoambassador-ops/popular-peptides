@@ -128,9 +128,9 @@ export function CartDrawer() {
                   {shipping() === 0 ? (subtotal() === 0 ? '—' : 'FREE') : formatPrice(shipping())}
                 </span>
               </div>
-              {subtotal() > 0 && subtotal() < 15000 && (
+              {subtotal() > 0 && subtotal() < 30000 && (
                 <p className="text-xs text-text-muted font-mono">
-                  Add {formatPrice(15000 - subtotal())} for free shipping
+                  Add {formatPrice(30000 - subtotal())} for free shipping
                 </p>
               )}
               <div className="flex justify-between font-display font-700 text-base pt-2 border-t border-border-subtle">

@@ -311,9 +311,9 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                {subtotal() < 15000 && (
+                {subtotal() < 30000 && (
                   <p className="font-mono text-xs text-text-muted mt-3">
-                    Add {formatPrice(15000 - subtotal())} for free shipping
+                    Add {formatPrice(30000 - subtotal())} for free shipping
                   </p>
                 )}
 

@@ -21,7 +21,7 @@ interface CartStore {
   total: () => number
 }
 
-const FREE_SHIPPING_THRESHOLD = 15000 // $150 CAD
+const FREE_SHIPPING_THRESHOLD = 30000 // $300 CAD
 const FLAT_SHIPPING = 1500 // $15 CAD
 
 export const useCartStore = create<CartStore>()(

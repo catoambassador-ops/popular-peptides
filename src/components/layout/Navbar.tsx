@@ -93,7 +93,7 @@ export function Navbar() {
       )}>
         {/* Announcement bar */}
         <div className="bg-brand-cyan text-bg-primary text-xs font-mono tracking-widest text-center py-2 px-4">
-          FREE SHIPPING ON ORDERS OVER $150 CAD &nbsp;·&nbsp; THIRD-PARTY TESTED &nbsp;·&nbsp; CANADIAN COMPANY
+          FREE SHIPPING ON ORDERS OVER $300 CAD &nbsp;·&nbsp; THIRD-PARTY TESTED &nbsp;·&nbsp; CANADIAN COMPANY
         </div>
 
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

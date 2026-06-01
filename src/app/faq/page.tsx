@@ -24,7 +24,7 @@ const faqs = [
       },
       {
         q: 'Is there a minimum order amount?',
-        a: 'No minimum order amount. Free shipping on all orders over $150 CAD.',
+        a: 'No minimum order amount. Free shipping on all orders over $300 CAD.',
       },
     ],
   },
@@ -41,7 +41,7 @@ const faqs = [
       },
       {
         q: 'Do you offer free shipping?',
-        a: 'Yes — free shipping on all orders over $150 CAD. Orders under $150 have a flat $15 CAD shipping fee.',
+        a: 'Yes — free shipping on all orders over $300 CAD. Orders under $300 have a flat $15 CAD shipping fee.',
       },
       {
         q: 'Will my order be discreetly packaged?',

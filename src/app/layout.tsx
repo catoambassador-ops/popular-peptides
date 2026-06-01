@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: 'Popular Peptides — Research Compounds Canada',
     template: '%s | Popular Peptides',
   },
-  description: 'Canada\'s trusted source for research-grade peptides. Third-party tested, GMP manufactured. Free shipping over $150 CAD.',
+  description: 'Canada\'s trusted source for research-grade peptides. Third-party tested, GMP manufactured. Free shipping over $300 CAD.',
   keywords: ['peptides canada', 'research peptides', 'bpc-157 canada', 'tb-500 canada', 'buy peptides', 'canadian peptides'],
   openGraph: {
     type: 'website',
