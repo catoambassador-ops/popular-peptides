@@ -217,7 +217,7 @@ export const products: Product[] = [
     description: `Oxytocin Acetate is the acetate salt form of oxytocin, a nonapeptide hormone produced in the hypothalamus. It has been extensively studied for its roles in social bonding, trust, stress regulation, and reproductive physiology.\n\nResearch has investigated its effects on prosocial behaviour, anxiety modulation, pain perception, and its interactions with the HPA axis. It remains one of the most studied neuropeptides in behavioural neuroscience.\n\nAll Popular Peptides compounds are manufactured under strict GMP protocols and independently tested for purity and identity. Certificate of Analysis provided with every order.`,
     shortDescription: 'Nonapeptide hormone studied for social behaviour, stress regulation, and reproductive research.',
     images: [{ url: '/images/products/peptide-vial-3.jpg', alt: 'Oxytocin Acetate vial' }],
-    variants: [{ id: 'oxy-1', name: 'Standard', price: 5000, sku: 'PP-OXY-1', inStock: true }],
+    variants: [{ id: 'oxy-1', name: 'Vial', price: 5000, sku: 'PP-OXY-1', inStock: true }],
     tags: ['research', 'peptide', 'cognitive', 'social', 'neuro'],
     researchAreas: ['cognitive', 'reproductive'],
     purity: '≥99%',
