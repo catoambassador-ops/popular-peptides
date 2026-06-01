@@ -4,6 +4,7 @@ import { ArrowRight, Shield, FlaskConical, Truck, Award, ChevronRight } from 'lu
 import { getFeaturedProducts } from '@/data/products'
 import { ProductCard } from '@/components/product/ProductCard'
 import { RecentlyViewed } from '@/components/RecentlyViewed'
+import { ReviewsSection } from '@/components/ReviewsSection'
 
 const researchCategories = [
   { name: 'Musculoskeletal', href: '/products?area=musculoskeletal', icon: '🦴' },
@@ -111,6 +112,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
 
       {/* ─── FEATURED PRODUCTS ─────────────────────────────────────── */}
       <section className="py-20">

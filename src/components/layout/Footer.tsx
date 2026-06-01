@@ -11,6 +11,7 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About Us', href: '/about' },
+    { label: 'Reviews', href: '/reviews' },
     { label: 'My Orders', href: '/orders' },
     { label: 'Peptide Calculator', href: '/peptide-calculator' },
     { label: 'Blog', href: '/blog' },
