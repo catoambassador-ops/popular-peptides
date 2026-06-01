@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { Rajdhani, DM_Sans, DM_Mono } from 'next/font/google'
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -73,8 +71,6 @@ export default function RootLayout({
             },
           }}
         />
-        <VercelAnalytics />
-        <SpeedInsights />
       </body>
     </html>
   )
