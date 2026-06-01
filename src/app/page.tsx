@@ -32,7 +32,7 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16 pt-24 pb-12">
           <div className="max-w-2xl">
-            <div className="fade-up fade-up-1 flex items-center gap-3 mb-6">
+            <div className="fade-up fade-up-1 flex items-center gap-3 mb-6 mt-4 sm:mt-0">
               <div className="w-8 h-px bg-brand-cyan" />
               <span className="section-label">Canada's Research Compound Source</span>
             </div>
