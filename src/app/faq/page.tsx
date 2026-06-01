@@ -12,7 +12,7 @@ const faqs = [
     items: [
       {
         q: 'How do I pay for my order?',
-        a: 'We currently accept Interac E-Transfer. After placing your order, you\'ll receive instructions to send payment to sales@popularpeptides.ca. Use your order number as the message. We are integrating Mobopay for credit card payments soon.',
+        a: 'We currently accept Interac E-Transfer. After placing your order, you\'ll receive instructions to send payment to sales@popularpeptides.ca. Use your order number as the message. Credit card payments coming soon.',
       },
       {
         q: 'How long does it take to confirm my e-transfer?',
