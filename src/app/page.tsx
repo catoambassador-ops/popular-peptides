@@ -88,8 +88,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── TRUST BADGES ─────────────────────────────────────────── */}
-      <section className="border-y border-border-subtle bg-bg-secondary/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="border-y border-border-default bg-bg-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { Icon: Shield, title: 'Third-Party Tested', desc: 'HPLC & Mass Spectrometry on every batch' },
@@ -97,13 +97,13 @@ export default function HomePage() {
               { Icon: Truck, title: 'Fast Shipping', desc: 'Tracked & insured across Canada' },
               { Icon: Award, title: 'COA Included', desc: 'Certificate of Analysis with every order' },
             ].map(({ Icon, title, desc }) => (
-              <div key={title} className="flex items-start gap-3">
-                <div className="w-10 h-10 border border-border-bright flex items-center justify-center shrink-0">
-                  <Icon size={18} className="text-brand-cyan" />
+              <div key={title} className="flex flex-col items-center text-center gap-4 py-4">
+                <div className="w-16 h-16 bg-brand-cyan/10 border-2 border-brand-cyan/30 rounded-full flex items-center justify-center">
+                  <Icon size={30} className="text-brand-cyan" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="font-display text-sm font-700 text-text-primary tracking-wide">{title}</div>
-                  <div className="text-xs text-text-secondary mt-0.5 leading-relaxed">{desc}</div>
+                  <div className="font-display text-base font-700 text-text-primary tracking-wide uppercase">{title}</div>
+                  <div className="text-sm text-text-secondary mt-1 leading-relaxed">{desc}</div>
                 </div>
               </div>
             ))}
