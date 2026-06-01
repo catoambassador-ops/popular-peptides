@@ -21,6 +21,7 @@ const navLinks = [
     ]
   },
   { label: 'Lab Results', href: '/lab-results' },
+  { label: 'Calculator', href: '/peptide-calculator' },
   { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
   { label: 'About', href: '/about' },
