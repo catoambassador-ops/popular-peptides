@@ -73,14 +73,14 @@ export default function HomePage() {
         </div>
 
         {/* Hero product image */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-6/12 h-full hidden lg:block">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 lg:w-7/12 h-full hidden md:block">
           <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-transparent to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-primary/30 to-transparent z-10" />
             <Image
               src="/images/branding/hero-products.jpg"
               alt="Popular Peptides products"
               fill
-              className="object-cover object-center"
+              className="object-contain object-center"
               priority
             />
           </div>
