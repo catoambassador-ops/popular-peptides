@@ -15,7 +15,7 @@ export default function ProductsPage({
 }: {
   searchParams: { category?: string; area?: string; sort?: string; search?: string }
 }) {
-  let filtered = [...products]
+  let filtered = products.filter(p => !p.hidden)
 
   // Filter by category
   if (searchParams.category) {

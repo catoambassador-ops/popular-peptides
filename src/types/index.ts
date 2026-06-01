@@ -33,6 +33,7 @@ export interface Product {
   casNumber?: string
   coaUrl?: string           // Certificate of Analysis PDF
   featured: boolean
+  hidden?: boolean          // hides from listing but keeps individual page
   badge?: string            // e.g. "New", "Popular", "Sale"
   createdAt: string
   updatedAt: string
