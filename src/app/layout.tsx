@@ -4,6 +4,7 @@ import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { CartDrawer } from '@/components/cart/CartDrawer'
+import { ConsentModal } from '@/components/ConsentModal'
 import { Toaster } from 'react-hot-toast'
 
 const rajdhani = Rajdhani({
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${rajdhani.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <body className="bg-bg-primary text-text-primary font-body antialiased">
+        <ConsentModal />
         <Navbar />
         <CartDrawer />
         <main>{children}</main>
