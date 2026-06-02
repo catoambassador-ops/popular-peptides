@@ -113,8 +113,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ReviewsSection />
-
       {/* ─── FEATURED PRODUCTS ─────────────────────────────────────── */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,6 +139,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
 
       {/* ─── RESEARCH CATEGORIES ───────────────────────────────────── */}
       <section className="py-20 bg-bg-secondary/30">

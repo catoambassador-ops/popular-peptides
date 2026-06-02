@@ -90,7 +90,7 @@ export const products: Product[] = [
     variants: [{ id: 'bacwater-30ml', name: '30ml', price: 1499, sku: 'PP-BACW-30', inStock: true }],
     tags: ['accessories', 'reconstitution', 'bac water'],
     researchAreas: [],
-    featured: true,
+    featured: false,
     createdAt: '2024-01-01',
     updatedAt: '2024-06-01',
   },
