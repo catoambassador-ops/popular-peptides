@@ -760,6 +760,214 @@ Sometimes the biggest breakthroughs happen when you stop looking for shortcuts a
 **Disclaimer**: Research peptides are intended for laboratory and research purposes. Products discussed in this article are not approved by Health Canada for the diagnosis, treatment, cure, or prevention of any disease. Always consult qualified healthcare professionals regarding medical concerns.
     `.trim(),
   },
+  {
+    slug: 'limitless-stack-nad-selank-semax-nasal-spray-bundle',
+    title: 'The Limitless Stack: Why Researchers Are Stacking NAD+, Selank, and Semax Together',
+    excerpt: 'Three of the most studied cognitive and recovery peptides — NAD+, Selank, and Semax — are now available as a bundled nasal spray stack. Here\'s why researchers are combining them.',
+    date: '2024-06-25',
+    readTime: '7 min read',
+    category: 'Research Overview',
+    tags: ['limitless stack', 'nad+', 'selank', 'semax', 'nasal spray', 'cognitive peptides canada', 'peptide bundle'],
+    relatedProducts: ['limitless-stack', 'nad-nasal-spray', 'selank-nasal-spray', 'semax-nasal-spray'],
+    content: `
+## Three Pathways. One Protocol.
+
+In the world of peptide research, compounds rarely work in isolation. The most interesting findings in recent years have come from investigators exploring how multiple peptides with complementary mechanisms can be studied together.
+
+The Limitless Stack — Popular Peptides\' bundle of NAD+ Nasal Spray, Selank Nasal Spray, and Semax Nasal Spray — brings together three of the most studied cognitive and cellular recovery compounds in a single convenient order.
+
+Here\'s what makes each compound interesting, and why researchers are increasingly studying them in combination.
+
+## NAD+: The Cellular Energy Currency
+
+NAD+ (Nicotinamide Adenine Dinucleotide) is arguably the most important coenzyme in cellular biology. It participates in hundreds of metabolic reactions, acts as the primary substrate for sirtuin enzymes, and plays a central role in DNA repair pathways.
+
+Research has consistently shown that NAD+ levels decline with age — dropping by as much as 50% between the ages of 40 and 60. This decline has been associated with reduced mitochondrial efficiency, impaired DNA repair, and decreased sirtuin activity.
+
+The nasal spray delivery format is of particular research interest because of the potential for direct access to central nervous system tissue via the olfactory pathway — a route that bypasses hepatic first-pass metabolism.
+
+## Selank: Anxiolytic Research Without Sedation
+
+Selank is a synthetic heptapeptide analogue of tuftsin developed in Russia in the 1990s. It has been studied in both preclinical and clinical settings for its anxiolytic and nootropic properties.
+
+What makes Selank particularly interesting to researchers is its selectivity profile. Unlike classical anxiolytic compounds, Selank appears to modulate GABA activity without causing sedation in preclinical models. Studies have also examined its effects on serotonin metabolism, BDNF expression, and stress hormone regulation.
+
+The nasal spray format allows researchers to explore intranasal administration — a delivery route with significant implications for compounds that interact with central nervous system receptors.
+
+## Semax: Neuroprotection and BDNF Research
+
+Semax is derived from the N-terminal fragment of ACTH (adrenocorticotropic hormone) and is one of the most extensively studied neuroprotective peptides in the scientific literature. Originally developed at the Institute of Molecular Genetics in Moscow, it has been the subject of hundreds of published studies.
+
+Research on Semax has focused on its ability to upregulate BDNF (Brain-Derived Neurotrophic Factor), its neuroprotective effects under ischemic conditions, and its potential to enhance memory consolidation and attention. Some studies have investigated its interactions with the dopaminergic system.
+
+Nasal administration is the primary research route for Semax, making the nasal spray format directly aligned with the established research literature.
+
+## Why Researchers Are Studying These Together
+
+The combination of NAD+, Selank, and Semax covers three distinct but complementary research areas:
+
+- **Cellular energy and longevity** (NAD+)
+- **Stress response and anxiety pathways** (Selank)
+- **Neuroprotection and cognitive function** (Semax)
+
+Researchers studying the intersection of metabolic health, cognitive aging, and stress resilience have a compelling rationale for exploring all three pathways simultaneously. The nasal spray format provides a consistent and convenient delivery method across all three compounds.
+
+## The Bundle Advantage
+
+Ordering the Limitless Stack versus purchasing NAD+, Selank, and Semax individually saves on both cost and logistics. A single shipment, a single set of COAs, and a streamlined research setup.
+
+Popular Peptides supplies all three compounds at ≥99% purity with independent third-party testing documentation.
+
+**Disclaimer**: All compounds are for laboratory and research use only. Not approved by Health Canada for therapeutic use.
+    `.trim(),
+  },
+  {
+    slug: 'nad-nasal-spray-research-canada-cellular-longevity',
+    title: 'Scientists Can\'t Stop Talking About NAD+ Nasal Spray — Here\'s Why',
+    excerpt: 'NAD+ supplementation research has exploded in the last decade. The nasal spray delivery format is adding a new dimension to how researchers study this critical cellular coenzyme.',
+    date: '2024-06-27',
+    readTime: '6 min read',
+    category: 'Longevity Research',
+    tags: ['nad+', 'nad nasal spray', 'cellular longevity', 'sirtuin', 'mitochondria', 'peptides canada', 'nad canada'],
+    relatedProducts: ['nad-nasal-spray', 'nad-plus', 'limitless-stack'],
+    content: `
+## The Molecule That Declines With Every Birthday
+
+If there is a single compound that longevity researchers have become obsessed with over the past decade, it is NAD+.
+
+Nicotinamide Adenine Dinucleotide is a coenzyme present in every living cell. It participates in over 500 enzymatic reactions, serves as the primary fuel source for sirtuins (often called the "longevity enzymes"), and plays a central role in DNA damage repair. Its role in mitochondrial function makes it fundamental to how cells produce energy.
+
+Here is the uncomfortable fact: NAD+ levels decline dramatically with age. By middle age, most tissues have roughly half the NAD+ they had at 20. Research has linked this decline to reduced mitochondrial efficiency, impaired cellular repair capacity, and increased cellular senescence.
+
+## Why the Nasal Spray Format Matters for Research
+
+Most NAD+ research has used oral or intravenous administration in preclinical models. The nasal spray delivery route represents a genuinely distinct research opportunity.
+
+The nasal cavity provides direct anatomical access to the central nervous system via the olfactory nerve pathway — a route that bypasses the liver entirely. This means compounds delivered intranasally are not subject to the hepatic first-pass metabolism that significantly reduces bioavailability of many orally administered compounds.
+
+For researchers studying NAD+\'s effects on brain tissue specifically — including neuronal mitochondrial function, neuroinflammation, and cognitive aging — the intranasal route offers a potentially more direct research pathway to CNS tissue than oral administration.
+
+## Sirtuin Activation and the Aging Connection
+
+Sirtuins are a family of seven proteins (SIRT1–7) that regulate gene expression, metabolic activity, DNA repair, and cellular stress responses. They are often described as the key mediators between NAD+ availability and longevity-associated outcomes in preclinical models.
+
+Because sirtuins consume NAD+ as a co-substrate, intracellular NAD+ availability directly limits sirtuin activity. Research exploring NAD+ supplementation as a strategy to restore sirtuin function in aged tissues has produced some of the most cited findings in longevity biology over the past five years.
+
+## PARP Competition and DNA Repair
+
+Poly(ADP-ribose) polymerases (PARPs) are enzymes activated by DNA damage that also consume NAD+ as a substrate. Under conditions of high DNA damage — which increases with aging — PARP activation can rapidly deplete cellular NAD+ reserves.
+
+This creates a research question of significant interest: does NAD+ supplementation improve DNA repair efficiency by ensuring adequate substrate availability for PARP enzymes? This question is driving considerable research activity.
+
+## Popular Peptides NAD+ Nasal Spray
+
+Popular Peptides supplies NAD+ Nasal Spray (10ml) as a research-grade compound for Canadian investigators. Third-party tested, ≥99% purity, Certificate of Analysis included.
+
+**Disclaimer**: For laboratory and research use only. Not approved by Health Canada for therapeutic use.
+    `.trim(),
+  },
+  {
+    slug: 'selank-nasal-spray-anxiety-research-canada',
+    title: 'The Russian Anxiety Peptide That\'s Quietly Taking Over Cognitive Research',
+    excerpt: 'Developed in Moscow in the 1990s, Selank has remained largely unknown outside of specialized research circles. That\'s starting to change — and Canadian researchers are paying close attention.',
+    date: '2024-06-29',
+    readTime: '6 min read',
+    category: 'Cognitive Research',
+    tags: ['selank', 'selank nasal spray', 'anxiety research', 'nootropic', 'cognitive peptides canada', 'gaba', 'bdnf'],
+    relatedProducts: ['selank-nasal-spray', 'limitless-stack'],
+    content: `
+## The Peptide Developed Behind the Iron Curtain
+
+In the 1990s, researchers at the Institute of Molecular Genetics in Moscow developed a synthetic heptapeptide with an unusual property: it appeared to reduce anxiety in preclinical models without producing sedation.
+
+They called it Selank.
+
+For decades, Selank remained largely confined to Russian and Eastern European research literature — studied extensively but not widely known in Western research circles. That is beginning to change, and Canadian researchers studying cognitive health, stress physiology, and anxiety biology are increasingly interested in what the literature says.
+
+## What Makes Selank Unique
+
+Most compounds studied for anxiolytic effects share a common mechanism: they enhance GABA activity, the brain\'s primary inhibitory neurotransmitter. The problem is that enhancing GABA often produces sedation, cognitive impairment, and dependency — major limitations for research applications and therapeutic development.
+
+Selank appears to modulate GABA differently. Preclinical research suggests it enhances GABAergic tone without the sedation profile of classical GABA-enhancing compounds. Researchers have also identified interactions with serotonin metabolism, dopaminergic pathways, and BDNF (Brain-Derived Neurotrophic Factor) expression.
+
+This selectivity profile makes Selank a valuable research tool for investigators who want to study anxiolytic mechanisms without the confounding variables introduced by classical benzodiazepine-like compounds.
+
+## The BDNF Connection
+
+BDNF is a neurotrophin that supports the growth, maintenance, and differentiation of neurons. It has been extensively studied in the context of depression, anxiety, cognitive function, and neuroplasticity. Research has suggested that reduced BDNF expression is associated with stress-related disorders in animal models.
+
+Selank has been shown in preclinical studies to upregulate BDNF expression in several brain regions. This effect is separate from its anxiolytic properties and represents a distinct research angle — particularly for investigators exploring the relationship between stress, BDNF, and cognitive performance.
+
+## Nasal Spray Delivery for CNS Research
+
+The intranasal delivery route offers particular advantages for compounds that interact with central nervous system receptors. The olfactory pathway provides direct anatomical access to brain tissue, bypassing the blood-brain barrier and hepatic metabolism.
+
+For Selank research specifically — where CNS receptor interactions are the primary area of interest — the nasal spray format aligns with the delivery route most commonly used in the published literature.
+
+## Popular Peptides Selank Nasal Spray
+
+Popular Peptides supplies Selank Nasal Spray (10ml) as a research-grade compound for Canadian investigators. ≥99% purity, independently third-party tested, Certificate of Analysis included.
+
+**Disclaimer**: For laboratory and research use only. Not approved by Health Canada for therapeutic use.
+    `.trim(),
+  },
+  {
+    slug: 'semax-nasal-spray-neuroprotection-bdnf-canada',
+    title: 'The Neuroprotective Peptide That Outperforms Expectations: A Deep Dive Into Semax Research',
+    excerpt: 'With hundreds of published studies and a track record in clinical research, Semax is one of the most scientifically documented peptides in existence. Here\'s what Canadian researchers need to know.',
+    date: '2024-07-01',
+    readTime: '7 min read',
+    category: 'Cognitive Research',
+    tags: ['semax', 'semax nasal spray', 'neuroprotection', 'bdnf', 'cognitive research canada', 'acth peptide', 'nootropic'],
+    relatedProducts: ['semax-nasal-spray', 'limitless-stack'],
+    content: `
+## One of the Most Studied Neuroprotective Peptides Ever Developed
+
+If research volume is any indication of scientific interest, Semax has earned its reputation.
+
+Originally developed at the Institute of Molecular Genetics of the Russian Academy of Sciences, Semax has been the subject of hundreds of peer-reviewed studies spanning over three decades. It has been investigated in clinical settings in Russia and Eastern Europe, and has been the focus of growing research interest internationally.
+
+For Canadian researchers studying cognitive aging, neuroprotection, and BDNF-related pathways, Semax represents one of the best-documented peptides available.
+
+## What Is Semax?
+
+Semax is derived from the N-terminal fragment of ACTH (adrenocorticotropic hormone) — specifically the 4-7 amino acid sequence of ACTH(4-7), extended with a Pro-Gly-Pro sequence that enhances stability and biological activity.
+
+The modification was intentional: researchers wanted to retain the cognitive effects associated with ACTH fragments while improving resistance to enzymatic breakdown. The result is a compound with a more favorable research profile than native ACTH fragments.
+
+## BDNF: The Primary Research Focus
+
+Brain-Derived Neurotrophic Factor (BDNF) is a neurotrophin that promotes neuronal survival, synaptic plasticity, and the formation of new neural connections. Reduced BDNF expression has been associated in research models with cognitive decline, depression, and neurodegenerative conditions.
+
+Semax has been shown in multiple preclinical studies to upregulate BDNF and its receptor TrkB in several brain regions, including the hippocampus — a structure critical to memory formation and consolidation.
+
+This BDNF-upregulating property is one of the most replicated findings in the Semax literature and represents the primary mechanism through which its cognitive effects are theorized to occur.
+
+## Neuroprotection Under Ischemic Conditions
+
+One of the most studied applications of Semax in the published literature involves neuroprotection under ischemic conditions. Multiple studies have investigated whether Semax can reduce neuronal damage following experimental stroke models in rodents.
+
+The proposed mechanisms include reduction of pro-inflammatory cytokine expression, modulation of nitric oxide synthesis, and enhancement of antioxidant enzyme activity in neuronal tissue. This area of research has produced some of the most clinically relevant findings in the Semax literature.
+
+## Cognitive and Attention Effects
+
+Beyond neuroprotection, Semax has been studied for its effects on attention, working memory, and processing speed in preclinical models. Research has also examined its potential interactions with the dopaminergic and serotonergic systems, which may contribute to its cognitive profile.
+
+The compound has been investigated in human subjects in Russia for stroke recovery, optic nerve atrophy, and attention deficit conditions — giving it an unusually extensive research record compared to most peptides in this category.
+
+## The Intranasal Research Route
+
+Semax is almost exclusively administered intranasally in both preclinical and clinical research. This is not incidental — the nasal route provides direct access to the CNS via the olfactory pathway, and the published pharmacokinetic data for Semax is built around this delivery route.
+
+For Canadian researchers who want to replicate or extend findings from the existing literature, the nasal spray format is the most scientifically aligned choice.
+
+## Popular Peptides Semax Nasal Spray
+
+Popular Peptides supplies Semax Nasal Spray (10ml) as a research-grade compound for Canadian investigators. ≥99% purity, independently third-party tested, Certificate of Analysis included.
+
+**Disclaimer**: For laboratory and research use only. Not approved by Health Canada for therapeutic use.
+    `.trim(),
+  },
 ]
 
 export const getBlogPost = (slug: string): BlogPost | undefined =>
