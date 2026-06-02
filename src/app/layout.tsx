@@ -7,6 +7,7 @@ import { CartDrawer } from '@/components/cart/CartDrawer'
 import { ConsentModal } from '@/components/ConsentModal'
 import { WelcomeBackBanner } from '@/components/WelcomeBackBanner'
 import { Analytics } from '@/components/Analytics'
+import { SchemaMarkup } from '@/components/SchemaMarkup'
 import { Toaster } from 'react-hot-toast'
 
 const rajdhani = Rajdhani({
@@ -29,16 +30,33 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Popular Peptides — Research Compounds Canada',
-    template: '%s | Popular Peptides',
+    default: 'Buy Peptides Canada | Popular Peptides — Research Compounds',
+    template: '%s | Popular Peptides Canada',
   },
-  description: 'Canada\'s trusted source for research-grade peptides. Third-party tested, GMP manufactured. Free shipping over $300 CAD.',
-  keywords: ['peptides canada', 'research peptides', 'bpc-157 canada', 'tb-500 canada', 'buy peptides', 'canadian peptides'],
+  description: 'Buy research-grade peptides in Canada. Popular Peptides ships across Canada including Vancouver, BC — third-party tested, GMP manufactured, COA included. Free shipping over $300 CAD.',
+  keywords: [
+    'buy peptides canada', 'peptides canada', 'research peptides canada',
+    'buy peptides Vancouver', 'peptides Vancouver BC', 'peptide shop canada',
+    'BPC-157 canada', 'TB-500 canada', 'retatrutide canada', 'tirzepatide canada',
+    'semax canada', 'selank canada', 'nad+ canada', 'canadian peptide supplier',
+    'GMP peptides canada', 'research compounds canada', 'best peptide supplier canada',
+    'peptides British Columbia', 'peptides Ontario', 'peptides Alberta',
+  ],
   openGraph: {
     type: 'website',
     locale: 'en_CA',
     url: 'https://popularpeptides.ca',
     siteName: 'Popular Peptides',
+    title: 'Buy Peptides Canada | Popular Peptides',
+    description: 'Canada\'s trusted source for research-grade peptides. Ships to Vancouver, Toronto, Calgary and all of Canada. Third-party tested, COA included.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Buy Peptides Canada | Popular Peptides',
+    description: 'Research-grade peptides shipped across Canada. Third-party tested, GMP manufactured.',
+  },
+  alternates: {
+    canonical: 'https://popularpeptides.ca',
   },
 }
 
@@ -50,6 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${rajdhani.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <body className="bg-bg-primary text-text-primary font-body antialiased">
+        <SchemaMarkup />
         <Analytics />
         <ConsentModal />
         <WelcomeBackBanner />

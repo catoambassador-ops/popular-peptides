@@ -256,13 +256,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── SHIPPING REGIONS ──────────────────────────────────────── */}
+      <section className="py-8 border-t border-border-subtle">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <div className="font-mono text-xs text-text-muted tracking-widest uppercase mb-3">Shipping Across Canada</div>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-xs text-text-secondary">
+            {['Vancouver, BC', 'Victoria, BC', 'Calgary, AB', 'Edmonton, AB', 'Toronto, ON', 'Ottawa, ON', 'Montreal, QC', 'Halifax, NS', 'Winnipeg, MB', 'Saskatoon, SK'].map(city => (
+              <span key={city} className="text-text-muted hover:text-text-secondary transition-colors">{city}</span>
+            ))}
+          </div>
+          <p className="font-mono text-[11px] text-text-muted mt-4 leading-relaxed">
+            Popular Peptides ships research-grade compounds to researchers across Canada — tracked, insured, and discreetly packaged.
+          </p>
+        </div>
+      </section>
+
       {/* ─── DISCLAIMER ────────────────────────────────────────────── */}
       <section className="py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="font-mono text-[11px] text-text-muted leading-relaxed tracking-wide">
-            All products offered by Popular Peptides are intended for research purposes only. 
-            These compounds are not approved for human consumption, therapeutic use, or veterinary use. 
-            By purchasing, you certify that you are a researcher aged 18+ and that compounds will be used 
+            All products offered by Popular Peptides are intended for research purposes only.
+            These compounds are not approved for human consumption, therapeutic use, or veterinary use.
+            By purchasing, you certify that you are a researcher aged 18+ and that compounds will be used
             for laboratory research purposes only. Popular Peptides is not responsible for misuse.
           </p>
         </div>

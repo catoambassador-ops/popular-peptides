@@ -970,6 +970,200 @@ Popular Peptides supplies Semax Nasal Spray (10ml) as a research-grade compound 
   },
 ]
 
+  {
+    slug: 'buy-peptides-canada-vancouver-guide',
+    title: 'Where to Buy Research Peptides in Canada (Vancouver, BC Guide)',
+    excerpt: 'Looking to buy research peptides in Canada? This guide covers what to look for in a Canadian peptide supplier, why quality matters, and how Popular Peptides serves researchers across Vancouver, BC and all of Canada.',
+    date: '2024-07-03',
+    readTime: '8 min read',
+    category: 'Buying Guide',
+    tags: [
+      'buy peptides canada', 'peptides vancouver', 'peptides BC', 'research peptides canada',
+      'best peptide supplier canada', 'buy peptides online canada', 'canadian peptide supplier',
+      'peptides Vancouver BC', 'buy BPC-157 canada', 'buy retatrutide canada'
+    ],
+    relatedProducts: ['complete-stack', 'retatrutide', 'limitless-stack'],
+    content: `
+## Buying Research Peptides in Canada: What You Need to Know
+
+The demand for research-grade peptides in Canada has grown significantly over the past several years. Researchers, biohackers, and longevity-focused individuals across Vancouver, Toronto, Calgary, and beyond are actively looking for reliable Canadian sources for compounds like BPC-157, Retatrutide, NAD+, Semax, and more.
+
+But the quality gap between suppliers is enormous — and choosing the wrong source can compromise your research entirely.
+
+This guide explains what to look for when buying peptides in Canada, what separates a legitimate research supplier from a questionable one, and why location matters for shipping, documentation, and trust.
+
+## Why Buy Peptides From a Canadian Supplier?
+
+Many researchers in Canada have historically ordered peptides from US or international suppliers. While this can work, there are meaningful advantages to sourcing domestically:
+
+**Faster Shipping**: A Canadian supplier ships within Canada — no customs delays, no cross-border complications. Researchers in Vancouver, BC typically receive orders within 2–4 business days.
+
+**No Import Risk**: Peptides crossing international borders can be held at customs, inspected, or seized. Domestic shipping eliminates this risk entirely.
+
+**Canadian Law Compliance**: Research peptides occupy a specific regulatory space in Canada. A domestic supplier operates within the Canadian framework rather than navigating cross-border grey areas.
+
+**Local Accountability**: A Canadian company can be held accountable under Canadian consumer protection standards. An offshore supplier cannot.
+
+## The Quality Checklist: What to Demand From Any Supplier
+
+Not all peptide suppliers are equal. When evaluating a Canadian peptide supplier, these are the non-negotiable criteria:
+
+**Independent Third-Party Testing**
+
+The only way to verify peptide identity and purity is through independent laboratory analysis. Legitimate suppliers test every batch using HPLC (High-Performance Liquid Chromatography) and Mass Spectrometry — the gold standard analytical methods.
+
+Be skeptical of any supplier that cannot provide third-party documentation. Self-reported purity claims without independent verification are meaningless.
+
+**Certificate of Analysis (COA)**
+
+A Certificate of Analysis is a formal document from an accredited laboratory confirming the compound's identity, purity, and absence of contaminants. A professional supplier provides this automatically with every order — not on request, not after the fact.
+
+**Batch Transparency**
+
+Reputable suppliers track compounds to specific production batches and can tie their COA documentation to the exact product you receive. This matters for research reproducibility.
+
+**Secure, Professional Packaging**
+
+Research compounds should arrive cold-packed if required, properly sealed, and clearly labelled. Professional packaging indicates a supplier that takes product integrity seriously.
+
+## Popular Compounds Available in Canada
+
+Canadian researchers are actively studying a wide range of peptides. The most commonly ordered compounds through Popular Peptides include:
+
+**Metabolic Research**: Retatrutide (the triple-agonist GLP-1/GIP/Glucagon peptide), Tirzepatide, IGF-1 LR3
+
+**Cognitive and Neurological**: Semax Nasal Spray, Selank Nasal Spray, NAD+ Nasal Spray, DSIP
+
+**Skin and Dermal**: KGLOW, GLOW, GHK-Cu
+
+**Longevity**: NAD+ 500mg, MOTS-C, Epitalon
+
+**Reconstitution**: Bacteriostatic Water 30ml
+
+**Bundles**: Complete Stack, Limitless Stack (NAD+ + Selank + Semax)
+
+## Shipping to Vancouver and Across British Columbia
+
+Popular Peptides ships to researchers throughout British Columbia — including Vancouver, Victoria, Kelowna, Kamloops, Prince George, and beyond. All shipments are tracked, insured, and packaged discreetly.
+
+British Columbia has a particularly active research and biohacking community, and demand for compounds like Retatrutide, Semax, and NAD+ has grown substantially among Vancouver-area researchers.
+
+## What Popular Peptides Provides With Every Order
+
+- ≥99% purity standard across our entire catalog
+- Third-party HPLC and Mass Spectrometry testing
+- Full Certificate of Analysis included automatically
+- Tracked and insured domestic shipping
+- Responsive customer support via email
+- Peptide calculator tool on our website for reconstitution guidance
+
+## How to Order
+
+Ordering is straightforward. Browse our catalog at popularpeptides.ca, select your compounds, and complete checkout. We accept Interac E-Transfer — Canada's most trusted peer-to-peer payment method. Credit card processing is coming soon.
+
+Orders are processed same or next business day following payment confirmation. Researchers across Vancouver, BC and Canada can expect delivery within 2–5 business days.
+
+**Disclaimer**: All compounds sold by Popular Peptides are for laboratory and research use only. They are not approved by Health Canada for human or veterinary therapeutic use. By purchasing, you confirm you are a researcher aged 18+ using compounds for legitimate scientific research.
+    `.trim(),
+  },,
+  {
+    slug: 'buy-peptides-canada-vancouver-guide',
+    title: 'Where to Buy Research Peptides in Canada (Vancouver, BC Guide)',
+    excerpt: 'Looking to buy research peptides in Canada? This guide covers what to look for in a Canadian peptide supplier, why quality matters, and how Popular Peptides serves researchers across Vancouver, BC and all of Canada.',
+    date: '2024-07-03',
+    readTime: '8 min read',
+    category: 'Buying Guide',
+    tags: [
+      'buy peptides canada', 'peptides vancouver', 'peptides BC', 'research peptides canada',
+      'best peptide supplier canada', 'buy peptides online canada', 'canadian peptide supplier',
+      'peptides Vancouver BC', 'buy BPC-157 canada', 'buy retatrutide canada'
+    ],
+    relatedProducts: ['complete-stack', 'retatrutide', 'limitless-stack'],
+    content: `
+## Buying Research Peptides in Canada: What You Need to Know
+
+The demand for research-grade peptides in Canada has grown significantly over the past several years. Researchers, biohackers, and longevity-focused individuals across Vancouver, Toronto, Calgary, and beyond are actively looking for reliable Canadian sources for compounds like BPC-157, Retatrutide, NAD+, Semax, and more.
+
+But the quality gap between suppliers is enormous — and choosing the wrong source can compromise your research entirely.
+
+This guide explains what to look for when buying peptides in Canada, what separates a legitimate research supplier from a questionable one, and why location matters for shipping, documentation, and trust.
+
+## Why Buy Peptides From a Canadian Supplier?
+
+Many researchers in Canada have historically ordered peptides from US or international suppliers. While this can work, there are meaningful advantages to sourcing domestically:
+
+**Faster Shipping**: A Canadian supplier ships within Canada — no customs delays, no cross-border complications. Researchers in Vancouver, BC typically receive orders within 2–4 business days.
+
+**No Import Risk**: Peptides crossing international borders can be held at customs, inspected, or seized. Domestic shipping eliminates this risk entirely.
+
+**Canadian Law Compliance**: Research peptides occupy a specific regulatory space in Canada. A domestic supplier operates within the Canadian framework rather than navigating cross-border grey areas.
+
+**Local Accountability**: A Canadian company can be held accountable under Canadian consumer protection standards. An offshore supplier cannot.
+
+## The Quality Checklist: What to Demand From Any Supplier
+
+Not all peptide suppliers are equal. When evaluating a Canadian peptide supplier, these are the non-negotiable criteria:
+
+**Independent Third-Party Testing**
+
+The only way to verify peptide identity and purity is through independent laboratory analysis. Legitimate suppliers test every batch using HPLC (High-Performance Liquid Chromatography) and Mass Spectrometry — the gold standard analytical methods.
+
+Be skeptical of any supplier that cannot provide third-party documentation. Self-reported purity claims without independent verification are meaningless.
+
+**Certificate of Analysis (COA)**
+
+A Certificate of Analysis is a formal document from an accredited laboratory confirming the compound's identity, purity, and absence of contaminants. A professional supplier provides this automatically with every order — not on request, not after the fact.
+
+**Batch Transparency**
+
+Reputable suppliers track compounds to specific production batches and can tie their COA documentation to the exact product you receive. This matters for research reproducibility.
+
+**Secure, Professional Packaging**
+
+Research compounds should arrive cold-packed if required, properly sealed, and clearly labelled. Professional packaging indicates a supplier that takes product integrity seriously.
+
+## Popular Compounds Available in Canada
+
+Canadian researchers are actively studying a wide range of peptides. The most commonly ordered compounds through Popular Peptides include:
+
+**Metabolic Research**: Retatrutide (the triple-agonist GLP-1/GIP/Glucagon peptide), Tirzepatide, IGF-1 LR3
+
+**Cognitive and Neurological**: Semax Nasal Spray, Selank Nasal Spray, NAD+ Nasal Spray, DSIP
+
+**Skin and Dermal**: KGLOW, GLOW, GHK-Cu
+
+**Longevity**: NAD+ 500mg, MOTS-C, Epitalon
+
+**Reconstitution**: Bacteriostatic Water 30ml
+
+**Bundles**: Complete Stack, Limitless Stack (NAD+ + Selank + Semax)
+
+## Shipping to Vancouver and Across British Columbia
+
+Popular Peptides ships to researchers throughout British Columbia — including Vancouver, Victoria, Kelowna, Kamloops, Prince George, and beyond. All shipments are tracked, insured, and packaged discreetly.
+
+British Columbia has a particularly active research and biohacking community, and demand for compounds like Retatrutide, Semax, and NAD+ has grown substantially among Vancouver-area researchers.
+
+## What Popular Peptides Provides With Every Order
+
+- ≥99% purity standard across our entire catalog
+- Third-party HPLC and Mass Spectrometry testing
+- Full Certificate of Analysis included automatically
+- Tracked and insured domestic shipping
+- Responsive customer support via email
+- Peptide calculator tool on our website for reconstitution guidance
+
+## How to Order
+
+Ordering is straightforward. Browse our catalog at popularpeptides.ca, select your compounds, and complete checkout. We accept Interac E-Transfer — Canada's most trusted peer-to-peer payment method. Credit card processing is coming soon.
+
+Orders are processed same or next business day following payment confirmation. Researchers across Vancouver, BC and Canada can expect delivery within 2–5 business days.
+
+**Disclaimer**: All compounds sold by Popular Peptides are for laboratory and research use only. They are not approved by Health Canada for human or veterinary therapeutic use. By purchasing, you confirm you are a researcher aged 18+ using compounds for legitimate scientific research.
+    `.trim(),
+  },
+]
+
 export const getBlogPost = (slug: string): BlogPost | undefined =>
   blogPosts.find(p => p.slug === slug)
 
