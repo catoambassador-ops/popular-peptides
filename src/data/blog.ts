@@ -968,8 +968,6 @@ Popular Peptides supplies Semax Nasal Spray (10ml) as a research-grade compound 
 **Disclaimer**: For laboratory and research use only. Not approved by Health Canada for therapeutic use.
     `.trim(),
   },
-]
-
   {
     slug: 'buy-peptides-canada-vancouver-guide',
     title: 'Where to Buy Research Peptides in Canada (Vancouver, BC Guide)',
