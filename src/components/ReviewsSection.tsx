@@ -16,7 +16,7 @@ export function ReviewsSection() {
   const featured = getFeaturedReviews()
 
   return (
-    <section className="py-20 bg-bg-secondary/30">
+    <section className="py-12 bg-bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>

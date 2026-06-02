@@ -114,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── FEATURED PRODUCTS ─────────────────────────────────────── */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10">
             <div>
@@ -143,7 +143,7 @@ export default function HomePage() {
       <ReviewsSection />
 
       {/* ─── RESEARCH CATEGORIES ───────────────────────────────────── */}
-      <section className="py-20 bg-bg-secondary/30">
+      <section className="py-12 bg-bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <div className="section-label mb-2">Browse by Research Area</div>
@@ -168,7 +168,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── QUALITY SECTION ────────────────────────────────────────── */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
