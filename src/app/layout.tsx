@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     default: 'Buy Peptides Canada | Popular Peptides — Research Compounds',
     template: '%s | Popular Peptides Canada',
   },
-  description: 'Buy research-grade peptides in Canada. Popular Peptides ships across Canada including Vancouver, BC — third-party tested, GMP manufactured, COA included. Free shipping over $300 CAD.',
+  description: 'Buy research-grade peptides in Canada — third-party tested, GMP manufactured, COA on every order. Ships nationwide from Vancouver, BC. Free shipping over $300.',
   keywords: [
     'buy peptides canada', 'peptides canada', 'research peptides canada',
     'buy peptides Vancouver', 'peptides Vancouver BC', 'peptide shop canada',

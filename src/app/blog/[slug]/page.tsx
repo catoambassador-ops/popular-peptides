@@ -190,8 +190,47 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     ?.map(slug => getProductBySlug(slug))
     .filter(Boolean) ?? []
 
+  // Structured data: BlogPosting + BreadcrumbList for rich results.
+  const base = 'https://popularpeptides.ca'
+  const url = `${base}/blog/${post.slug}`
+  const img = post.image
+    ? (post.image.startsWith('http') ? post.image : base + post.image)
+    : `${base}/images/branding/science.png`
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.excerpt,
+        image: img,
+        datePublished: post.date,
+        dateModified: post.date,
+        author: { '@type': 'Organization', name: 'Popular Peptides' },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Popular Peptides',
+          logo: { '@type': 'ImageObject', url: `${base}/images/branding/canadaflag.jpg` },
+        },
+        mainEntityOfPage: url,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: base },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${base}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.title, item: url },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="min-h-screen pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-border-subtle bg-bg-secondary/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
