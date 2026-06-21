@@ -4,25 +4,26 @@ import { Mail, Instagram, Twitter } from 'lucide-react'
 
 const footerLinks = {
   Shop: [
-    { label: 'All Peptides', href: '/category/peptides' },
+    { label: 'All Peptides', href: '/products' },
     { label: 'Accessories', href: '/category/accessories' },
-    { label: 'Shop A–Z', href: '/products' },
     { label: 'Lab Results / COA', href: '/lab-results' },
-  ],
-  Company: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Reviews', href: '/reviews' },
-    { label: 'My Orders', href: '/orders' },
     { label: 'Peptide Calculator', href: '/peptide-calculator' },
+  ],
+  Explore: [
     { label: 'Blog', href: '/blog' },
+    { label: 'Reviews', href: '/reviews' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About Us', href: '/about' },
+  ],
+  Support: [
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'My Orders', href: '/orders' },
+    { label: 'Shipping Policy', href: '/shipping' },
+    { label: 'Refund Policy', href: '/refunds' },
   ],
   Legal: [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Shipping Policy', href: '/shipping' },
-    { label: 'Refund Policy', href: '/refunds' },
   ],
 }
 
@@ -54,10 +55,10 @@ export function Footer() {
 
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
-          
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
+
           {/* Brand col */}
-          <div className="md:col-span-2 space-y-5">
+          <div className="col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-10 h-7 relative overflow-hidden rounded-sm shadow-sm flex-shrink-0">
                 <Image

@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Terms of Service' }
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'Popular Peptides Terms of Service. All products are sold for laboratory and research use only.',
+  alternates: { canonical: 'https://popularpeptides.ca/terms' },
+}
 
 export default function TermsPage() {
   return (

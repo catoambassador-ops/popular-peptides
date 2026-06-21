@@ -4,6 +4,11 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: '**' }
     ]
+  },
+  async redirects() {
+    return [
+      { source: '/house-calls', destination: '/intake', permanent: true },
+    ]
   }
 }
 

@@ -45,8 +45,8 @@ export default function HomePage() {
               DELIVERED
             </h1>
 
-            <p className="fade-up fade-up-3 font-body text-lg text-text-secondary leading-relaxed mb-8 max-w-xl">
-              Popular Peptides is Canada's trusted source for GMP-grade research compounds, independently verified through third-party laboratory testing. Every batch includes a Certificate of Analysis, ensuring transparency, consistency, and confidence in every order.
+            <p className="fade-up fade-up-3 font-body text-base text-text-secondary leading-relaxed mb-8 max-w-sm">
+              Canada's trusted source for GMP-grade research compounds. Third-party tested, COA included with every order.
             </p>
 
             <div className="fade-up fade-up-4 flex flex-wrap gap-4">
@@ -97,7 +97,7 @@ export default function HomePage() {
               { Icon: Shield, title: 'Third-Party Tested', desc: 'HPLC & Mass Spectrometry on every batch' },
               { Icon: FlaskConical, title: '≥99% Purity', desc: 'GMP manufacturing protocols' },
               { Icon: Truck, title: 'Fast Shipping', desc: 'Tracked & insured across Canada' },
-              { Icon: Award, title: 'COA Included', desc: 'Certificate of Analysis with every order' },
+              { Icon: Award, title: 'Certificates of Authenticity', desc: 'Certificate of Analysis with every order' },
             ].map(({ Icon, title, desc }) => (
               <div key={title} className="flex flex-col items-center text-center gap-4 py-4">
                 <div className="w-16 h-16 bg-brand-cyan/10 border-2 border-brand-cyan/30 rounded-full flex items-center justify-center">
@@ -105,7 +105,6 @@ export default function HomePage() {
                 </div>
                 <div>
                   <div className="font-display text-base font-700 text-text-primary tracking-wide uppercase">{title}</div>
-                  <div className="text-sm text-text-secondary mt-1 leading-relaxed">{desc}</div>
                 </div>
               </div>
             ))}
@@ -261,8 +260,25 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="font-mono text-xs text-text-muted tracking-widest uppercase mb-3">Shipping Across Canada</div>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-xs text-text-secondary">
-            {['Vancouver, BC', 'Victoria, BC', 'Calgary, AB', 'Edmonton, AB', 'Toronto, ON', 'Ottawa, ON', 'Montreal, QC', 'Halifax, NS', 'Winnipeg, MB', 'Saskatoon, SK'].map(city => (
-              <span key={city} className="text-text-muted hover:text-text-secondary transition-colors">{city}</span>
+            {[
+              { label: 'Vancouver, BC', slug: 'buy-peptides-canada-vancouver-guide' },
+              { label: 'Victoria, BC', slug: 'buy-peptides-victoria-bc' },
+              { label: 'Calgary, AB', slug: 'buy-peptides-calgary-ab' },
+              { label: 'Edmonton, AB', slug: 'buy-peptides-edmonton-ab' },
+              { label: 'Toronto, ON', slug: 'buy-peptides-toronto-on' },
+              { label: 'Ottawa, ON', slug: 'buy-peptides-ottawa-on' },
+              { label: 'Montreal, QC', slug: 'buy-peptides-montreal-qc' },
+              { label: 'Halifax, NS', slug: 'buy-peptides-halifax-ns' },
+              { label: 'Winnipeg, MB', slug: 'buy-peptides-winnipeg-mb' },
+              { label: 'Saskatoon, SK', slug: 'buy-peptides-saskatoon-sk' },
+            ].map(city => (
+              <Link
+                key={city.label}
+                href={`/blog/${city.slug}`}
+                className="text-text-muted hover:text-brand-cyan transition-colors"
+              >
+                {city.label}
+              </Link>
             ))}
           </div>
           <p className="font-mono text-[11px] text-text-muted mt-4 leading-relaxed">

@@ -2,8 +2,17 @@ import { Metadata } from 'next'
 import { ChevronDown } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'FAQ',
-  description: 'Frequently asked questions about Popular Peptides — ordering, shipping, payment, and research compounds.',
+  title: 'FAQ — Ordering, Shipping & Research Compounds',
+  description: 'Frequently asked questions about Popular Peptides — ordering, shipping, payment, and research compounds across Canada.',
+  alternates: { canonical: 'https://popularpeptides.ca/faq' },
+  openGraph: {
+    type: 'website',
+    url: 'https://popularpeptides.ca/faq',
+    siteName: 'Popular Peptides',
+    title: 'Popular Peptides FAQ — Ordering, Shipping & Research Compounds',
+    description: 'Answers on ordering, shipping, payment, and research compounds across Canada.',
+    images: [{ url: '/images/branding/hero-products.jpg', width: 1536, height: 1024, alt: 'Popular Peptides FAQ' }],
+  },
 }
 
 const faqs = [

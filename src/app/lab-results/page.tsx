@@ -2,8 +2,17 @@ import { Metadata } from 'next'
 import { FileText, ExternalLink, Shield } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Lab Results & COA',
-  description: 'Third-party laboratory results and Certificates of Analysis for all Popular Peptides research compounds.',
+  title: 'Lab Results & Certificates of Analysis',
+  description: 'Third-party laboratory results and Certificates of Analysis (COA) for every Popular Peptides research compound. Verified purity and identity on every batch.',
+  alternates: { canonical: 'https://popularpeptides.ca/lab-results' },
+  openGraph: {
+    type: 'website',
+    url: 'https://popularpeptides.ca/lab-results',
+    siteName: 'Popular Peptides',
+    title: 'Lab Results & Certificates of Analysis — Popular Peptides',
+    description: 'Third-party lab results and COA for every research compound. Verified purity and identity on every batch.',
+    images: [{ url: '/images/branding/science.png', width: 1536, height: 1024, alt: 'Popular Peptides lab results and COA' }],
+  },
 }
 
 const testingInfo = [
@@ -14,12 +23,15 @@ const testingInfo = [
   { label: 'Contaminant Analysis', desc: 'Heavy metals and chemical contaminant screening' },
 ]
 
-// These would be populated as you upload COAs to /public/coa/
 const coaDocuments = [
-  { product: 'BPC-157', batch: 'PP-BPC157-240601', date: '2024-06-01', purity: '99.7%', file: null },
-  { product: 'TB-500', batch: 'PP-TB500-240601', date: '2024-06-01', purity: '99.4%', file: null },
-  { product: 'Selank', batch: 'PP-SELANK-240601', date: '2024-06-01', purity: '99.6%', file: null },
-  { product: 'Epitalon', batch: 'PP-EPIT-240601', date: '2024-06-01', purity: '99.8%', file: null },
+  { product: 'Retatrutide', size: '20mg', batch: 'PBC-RETA-20mg-051026', date: '2026-05-19', purity: '99.38%', file: '/coa/PBC-RETA-20mg-051026.pdf', featured: true },
+  { product: 'CJC-1295 + Ipamorelin', size: '10mg', batch: 'PBC-CJCD-10-052026', date: '2026-06-02', purity: '100.00%', file: '/coa/PBC-CJCD-10-052026.pdf', featured: true },
+  { product: 'GLOW', size: '70mg', batch: 'PBC-GLOW-70mg-051026', date: '2026-05-20', purity: '99.81%', file: '/coa/PBC-GLOW-70mg-051026.pdf', featured: true },
+  { product: 'Semax', size: '10mg', batch: 'PBC-SEMAX-10mg-051026', date: '2026-05-19', purity: '99.78%', file: '/coa/PBC-SEMAX-10mg-051026.pdf', featured: true },
+  { product: 'MOTS-C', size: '20mg', batch: 'PBC-MOTS-20mg-051026', date: '2026-05-19', purity: '99.63%', file: '/coa/PBC-MOTS-20mg-051026.pdf', featured: false },
+  { product: 'DSIP', size: '5mg', batch: 'PBC-DSIP-5mg-051026', date: '2026-05-19', purity: '99.53%', file: '/coa/PBC-DSIP-5mg-051026.pdf', featured: false },
+  { product: 'GHK-Cu', size: '100mg', batch: 'PBC-GHKC-100-042226', date: '2026-04-28', purity: '99.00%', file: '/coa/PBC-GHKC-100-042226.pdf', featured: false },
+  { product: 'KGLOW', size: '80mg', batch: 'PBC-KLOW-80mg-051026', date: '2026-05-19', purity: '98.41%', file: '/coa/PBC-KLOW-80mg-051026.pdf', featured: false },
 ]
 
 export default function LabResultsPage() {
@@ -40,9 +52,9 @@ export default function LabResultsPage() {
         {/* Testing methodology */}
         <div className="mb-12">
           <h2 className="font-display text-2xl font-700 text-text-primary mb-6">Our Testing Process</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             {testingInfo.map(item => (
-              <div key={item.label} className="card p-5">
+              <div key={item.label} className="card p-5 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
                 <div className="flex items-start gap-3">
                   <Shield size={16} className="text-brand-cyan mt-0.5 shrink-0" />
                   <div>
@@ -65,7 +77,6 @@ export default function LabResultsPage() {
                 <thead>
                   <tr className="bg-bg-secondary border-b border-border-subtle">
                     <th className="px-5 py-3 text-left font-mono text-xs text-text-muted tracking-widest uppercase">Product</th>
-                    <th className="px-5 py-3 text-left font-mono text-xs text-text-muted tracking-widest uppercase">Batch</th>
                     <th className="px-5 py-3 text-left font-mono text-xs text-text-muted tracking-widest uppercase">Test Date</th>
                     <th className="px-5 py-3 text-left font-mono text-xs text-text-muted tracking-widest uppercase">Purity</th>
                     <th className="px-5 py-3 text-left font-mono text-xs text-text-muted tracking-widest uppercase">Status</th>
@@ -75,8 +86,12 @@ export default function LabResultsPage() {
                 <tbody>
                   {coaDocuments.map((doc, i) => (
                     <tr key={i} className="border-b border-border-subtle hover:bg-bg-secondary/50 transition-colors">
-                      <td className="px-5 py-4 font-display text-sm font-700 text-text-primary">{doc.product}</td>
-                      <td className="px-5 py-4 font-mono text-xs text-text-secondary">{doc.batch}</td>
+                      <td className="px-5 py-4 font-display text-sm font-700 text-text-primary">
+                        {doc.product}
+                        {doc.featured && (
+                          <span className="ml-2 text-[9px] font-mono text-brand-cyan tracking-widest border border-brand-cyan/40 px-1.5 py-0.5">FEATURED</span>
+                        )}
+                      </td>
                       <td className="px-5 py-4 font-mono text-xs text-text-secondary">{doc.date}</td>
                       <td className="px-5 py-4 font-mono text-sm text-brand-cyan font-600">{doc.purity}</td>
                       <td className="px-5 py-4">
@@ -90,7 +105,7 @@ export default function LabResultsPage() {
                           <a href={doc.file} target="_blank" rel="noopener noreferrer"
                             className="flex items-center gap-1.5 text-brand-cyan hover:underline font-mono text-xs">
                             <FileText size={13} />
-                            Download
+                            View
                             <ExternalLink size={11} />
                           </a>
                         ) : (

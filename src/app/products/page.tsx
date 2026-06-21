@@ -2,10 +2,33 @@ import { Metadata } from 'next'
 import { products } from '@/data/products'
 import { ProductCard } from '@/components/product/ProductCard'
 import { Filter } from 'lucide-react'
+import { ogImage } from '@/lib/og'
+
+const OG = ogImage({
+  title: 'Shop Research Peptides',
+  subtitle: 'The full catalog — third-party tested, GMP-manufactured, COA included',
+  kicker: 'Buy Peptides · Canada',
+  alt: 'Popular Peptides research peptide catalog',
+})
 
 export const metadata: Metadata = {
-  title: 'Shop Research Peptides',
-  description: 'Browse our full catalog of research-grade peptides and accessories. Third-party tested, GMP manufactured.',
+  title: 'Shop Research Peptides — Buy Peptides in Canada',
+  description: 'Browse the full Popular Peptides catalog of research-grade peptides and accessories. Third-party tested, GMP-manufactured, COA included. Ships across Canada.',
+  alternates: { canonical: 'https://popularpeptides.ca/products' },
+  openGraph: {
+    type: 'website',
+    url: 'https://popularpeptides.ca/products',
+    siteName: 'Popular Peptides',
+    title: 'Shop Research Peptides — Buy Peptides in Canada',
+    description: 'The full catalog of research-grade peptides and accessories. Third-party tested, GMP-manufactured, COA included.',
+    images: [OG],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shop Research Peptides — Buy Peptides in Canada',
+    description: 'The full catalog of research-grade peptides. Third-party tested, COA included.',
+    images: [OG.url],
+  },
 }
 
 const categories = ['All', 'Peptides', 'Accessories']

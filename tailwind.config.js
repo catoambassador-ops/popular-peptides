@@ -38,6 +38,7 @@ module.exports = {
         display: ['var(--font-display)', 'sans-serif'],
         body: ['var(--font-body)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'grid-pattern': "linear-gradient(rgba(2,132,199,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(2,132,199,0.05) 1px, transparent 1px)",

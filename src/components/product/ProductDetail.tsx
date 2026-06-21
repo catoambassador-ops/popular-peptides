@@ -148,14 +148,13 @@ export function ProductDetail({ product }: Props) {
             {/* Trust badges */}
             <div className="mt-4 grid grid-cols-3 gap-2">
               {[
-                { icon: Shield, label: 'Third-Party Tested', sub: 'HPLC & Mass Spec' },
-                { icon: FlaskConical, label: '≥99% Purity', sub: 'Every Batch' },
-                { icon: FileText, label: 'COA Included', sub: 'With Every Order' },
-              ].map(({ icon: Icon, label, sub }) => (
+                { icon: Shield, label: 'Third-Party Tested' },
+                { icon: FlaskConical, label: '≥99% Purity' },
+                { icon: FileText, label: 'COAs' },
+              ].map(({ icon: Icon, label }) => (
                 <div key={label} className="bg-brand-cyan/5 border border-brand-cyan/20 p-3 flex flex-col items-center gap-1 text-center">
                   <Icon size={20} className="text-brand-cyan" />
-                  <span className="font-display text-xs font-700 text-text-primary tracking-wide leading-tight">{label}</span>
-                  <span className="font-mono text-[9px] text-text-muted tracking-widest uppercase">{sub}</span>
+                  <span className="font-display text-xs font-800 text-text-primary tracking-wide leading-tight">{label}</span>
                 </div>
               ))}
             </div>

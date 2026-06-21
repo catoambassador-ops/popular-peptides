@@ -4,6 +4,7 @@ import { getProductsByCategory } from '@/data/products'
 import { ProductCard } from '@/components/product/ProductCard'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
+import { ogImage } from '@/lib/og'
 
 const categoryMeta: Record<string, { title: string; description: string }> = {
   peptides: {
@@ -22,7 +23,28 @@ interface Props {
 
 export function generateMetadata({ params }: Props): Metadata {
   const meta = categoryMeta[params.slug]
-  return meta ? { title: meta.title, description: meta.description } : { title: 'Category' }
+  if (!meta) return { title: 'Category' }
+  const url = `https://popularpeptides.ca/category/${params.slug}`
+  const image = ogImage({ title: meta.title, subtitle: meta.description, kicker: 'Popular Peptides · Canada', alt: meta.title })
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      siteName: 'Popular Peptides',
+      title: `${meta.title} — Popular Peptides Canada`,
+      description: meta.description,
+      images: [image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${meta.title} — Popular Peptides Canada`,
+      description: meta.description,
+      images: [image.url],
+    },
+  }
 }
 
 export default function CategoryPage({ params }: Props) {

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getProductBySlug, products } from '@/data/products'
 import { ProductDetail } from '@/components/product/ProductDetail'
+import { ogImage } from '@/lib/og'
 
 interface Props {
   params: { slug: string }
@@ -14,14 +15,50 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const product = getProductBySlug(params.slug)
   if (!product) return { title: 'Product Not Found' }
+
+  const url = `https://popularpeptides.ca/products/${product.slug}`
+  const title = `Buy ${product.name} in Canada — Research Peptides | Popular Peptides`
+  const description = `${product.shortDescription} Order ${product.name} in Canada${
+    product.purity ? ` (${product.purity} purity)` : ''
+  } — third-party tested with COA. Fast, discreet shipping to Vancouver, Toronto, Calgary and nationwide.`
+  const lowestPrice = Math.min(...product.variants.map(v => v.price))
+  const priceLabel = Number.isFinite(lowestPrice) ? `$${(lowestPrice / 100).toFixed(2)}` : undefined
+  const branded = ogImage({
+    title: product.name,
+    subtitle: product.shortDescription,
+    kicker: 'Research Peptide · Canada',
+    price: priceLabel,
+    purity: product.purity,
+    badge: product.badge,
+    alt: `${product.name} — Popular Peptides Canada`,
+  })
+  const photo = product.images?.[0]
+  const ogImages = photo
+    ? [branded, { url: photo.url, alt: photo.alt || `${product.name} — Popular Peptides` }]
+    : [branded]
+
   return {
-    title: `Buy ${product.name} Canada | Popular Peptides`,
-    description: `${product.shortDescription} Order ${product.name} in Canada — ships to Vancouver, Toronto, Calgary and nationwide. Third-party tested, COA included.`,
+    title: { absolute: title },
+    description,
     keywords: [
       `${product.name} canada`, `buy ${product.name} canada`, `${product.name} for sale canada`,
-      `${product.name} Vancouver`, `${product.name} research canada`, 'peptides canada',
+      `${product.name} Vancouver`, `${product.name} research canada`, 'research peptides canada',
     ],
-    alternates: { canonical: `https://popularpeptides.ca/products/${product.slug}` },
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      siteName: 'Popular Peptides',
+      title,
+      description,
+      images: ogImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ogImages?.map(i => i.url),
+    },
   }
 }
 

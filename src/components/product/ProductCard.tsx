@@ -107,12 +107,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         <div className="font-mono text-[10px] text-text-muted tracking-widest uppercase mb-1">
           {product.category}
         </div>
-        <h3 className="font-display text-sm font-700 text-text-primary tracking-wide leading-snug group-hover:text-brand-cyan transition-colors flex-1">
+        <h3 className="font-display text-base font-800 text-text-primary tracking-widest leading-snug group-hover:text-brand-cyan transition-colors flex-1 uppercase">
           {product.name}
         </h3>
-        <p className="text-xs text-text-secondary mt-1.5 line-clamp-2 leading-relaxed">
-          {product.shortDescription}
-        </p>
 
         <div className="mt-3 flex items-center justify-between">
           <span className="font-mono text-sm text-brand-cyan font-600">{priceDisplay}</span>

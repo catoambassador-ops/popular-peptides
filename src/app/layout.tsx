@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Rajdhani, DM_Sans, DM_Mono } from 'next/font/google'
+import { Outfit, Inter, DM_Mono, Fraunces } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -8,15 +8,18 @@ import { ConsentModal } from '@/components/ConsentModal'
 import { WelcomeBackBanner } from '@/components/WelcomeBackBanner'
 import { Analytics } from '@/components/Analytics'
 import { SchemaMarkup } from '@/components/SchemaMarkup'
+import { TawkChat } from '@/components/TawkChat'
+import { BrevoScript } from '@/components/BrevoScript'
 import { Toaster } from 'react-hot-toast'
+import { ogImage } from '@/lib/og'
 
-const rajdhani = Rajdhani({
+const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-display',
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   variable: '--font-body',
@@ -28,7 +31,23 @@ const dmMono = DM_Mono({
   variable: '--font-mono',
 })
 
+// Upscale serif for elegant headings (used on the intake page).
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+})
+
+const DEFAULT_OG_IMAGE = ogImage({
+  title: 'Buy Research-Grade Peptides in Canada',
+  subtitle: 'GMP-manufactured · third-party tested · COA on every order',
+  kicker: 'Popular Peptides · Canada',
+  alt: 'Popular Peptides — research-grade peptides shipped across Canada',
+})
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://popularpeptides.ca'),
   title: {
     default: 'Buy Peptides Canada | Popular Peptides — Research Compounds',
     template: '%s | Popular Peptides Canada',
@@ -49,11 +68,14 @@ export const metadata: Metadata = {
     siteName: 'Popular Peptides',
     title: 'Buy Peptides Canada | Popular Peptides',
     description: 'Canada\'s trusted source for research-grade peptides. Ships to Vancouver, Toronto, Calgary and all of Canada. Third-party tested, COA included.',
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@popularpeptides',
     title: 'Buy Peptides Canada | Popular Peptides',
     description: 'Research-grade peptides shipped across Canada. Third-party tested, GMP manufactured.',
+    images: [DEFAULT_OG_IMAGE.url],
   },
   alternates: {
     canonical: 'https://popularpeptides.ca',
@@ -66,9 +88,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${rajdhani.variable} ${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${inter.variable} ${dmMono.variable} ${fraunces.variable}`}>
       <body className="bg-bg-primary text-text-primary font-body antialiased">
         <SchemaMarkup />
+        <TawkChat />
+        <BrevoScript />
         <Analytics />
         <ConsentModal />
         <WelcomeBackBanner />

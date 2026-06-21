@@ -21,6 +21,7 @@ const navLinks = [
       { label: 'Shop A–Z', href: '/products?sort=name' },
     ]
   },
+  { label: 'Request Info', href: '/intake' },
   { label: 'Lab Results', href: '/lab-results' },
   { label: 'Calculator', href: '/peptide-calculator' },
   { label: 'Blog', href: '/blog' },

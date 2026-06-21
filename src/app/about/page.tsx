@@ -4,8 +4,23 @@ import Image from 'next/image'
 import { Shield, FlaskConical, Truck, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'About Popular Peptides — Canada\'s trusted source for research-grade peptides.',
+  title: 'About Us — Canada\'s Research Compound Source',
+  description: 'Popular Peptides gives Canadian researchers reliable, verified access to research-grade peptides — GMP-manufactured, third-party tested, with a COA on every order.',
+  alternates: { canonical: 'https://popularpeptides.ca/about' },
+  openGraph: {
+    type: 'website',
+    url: 'https://popularpeptides.ca/about',
+    siteName: 'Popular Peptides',
+    title: 'About Popular Peptides — Canada\'s Research Compound Source',
+    description: 'Reliable, verified access to research-grade peptides for Canadian researchers. GMP-manufactured, third-party tested, COA included.',
+    images: [{ url: '/images/branding/science.png', width: 1536, height: 1024, alt: 'Popular Peptides research lab' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Popular Peptides',
+    description: 'Canada\'s trusted source for research-grade peptides.',
+    images: ['/images/branding/science.png'],
+  },
 }
 
 export default function AboutPage() {

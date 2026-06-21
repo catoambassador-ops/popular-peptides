@@ -13,10 +13,29 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = getBlogPost(params.slug)
   if (!post) return {}
+  const url = `https://popularpeptides.ca/blog/${post.slug}`
+  const imageUrl = post.image || '/images/branding/science.png'
   return {
-    title: `${post.title} | Popular Peptides`,
+    title: { absolute: `${post.title} | Popular Peptides` },
     description: post.excerpt,
     keywords: post.tags.join(', '),
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      siteName: 'Popular Peptides',
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.date,
+      tags: post.tags,
+      images: [{ url: imageUrl, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [imageUrl],
+    },
   }
 }
 

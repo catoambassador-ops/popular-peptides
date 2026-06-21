@@ -1,6 +1,19 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { CartItem } from '@/types'
+import { brevoTrack } from '@/components/BrevoScript'
+
+const ABANDONED_EMAIL_KEY = 'pp-abandoned-email'
+
+function getKnownEmail(): string | undefined {
+  if (typeof window === 'undefined') return undefined
+  try {
+    const raw = localStorage.getItem(ABANDONED_EMAIL_KEY)
+    return raw ? JSON.parse(raw).email : undefined
+  } catch {
+    return undefined
+  }
+}
 
 interface CartStore {
   items: CartItem[]
@@ -44,7 +57,26 @@ export const useCartStore = create<CartStore>()(
               )
             }
           }
-          return { items: [...state.items, newItem] }
+          // Brevo: track cart update (powers abandoned-cart automation)
+          const nextItems = [...state.items, newItem]
+          const cartTotal =
+            nextItems.reduce((sum, i) => sum + i.price * i.quantity, 0) / 100
+          brevoTrack('cart_updated', getKnownEmail(), {
+            id: 'cart',
+            data: {
+              total: cartTotal,
+              currency: 'CAD',
+              url: 'https://popularpeptides.ca/cart',
+              items: nextItems.map(i => ({
+                name: i.productName,
+                variant: i.variantName,
+                price: i.price / 100,
+                quantity: i.quantity,
+                url: `https://popularpeptides.ca/products/${i.slug}`,
+              })),
+            },
+          })
+          return { items: nextItems }
         })
       },
 

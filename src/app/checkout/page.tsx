@@ -9,6 +9,7 @@ import { formatPrice, PROVINCES, calculateTax, PROVINCE_TAX_RATES } from '@/lib/
 import { getPromoCode } from '@/lib/promo-codes'
 import { saveOrderToHistory } from '@/lib/order-store'
 import { trackEvent } from '@/components/Analytics'
+import { brevoIdentify, brevoTrack } from '@/components/BrevoScript'
 import { CheckoutForm } from '@/types'
 
 const ABANDONED_EMAIL_KEY = 'pp-abandoned-email'
@@ -52,7 +53,7 @@ export default function CheckoutPage() {
       variantId: 'bacwater-30ml',
       productName: 'Bacteriostatic Water 30ml',
       variantName: '30ml',
-      price: 1499,
+      price: 1999,
       quantity: 1,
       slug: 'bacteriostatic-water-30ml',
     })
@@ -86,6 +87,17 @@ export default function CheckoutPage() {
     setForm(prev => ({ ...prev, email }))
     if (email.includes('@')) {
       localStorage.setItem(ABANDONED_EMAIL_KEY, JSON.stringify({ email, cartValue: subtotal(), timestamp: Date.now() }))
+      // Identify user in Brevo so abandoned cart emails can be sent
+      brevoIdentify(email)
+      brevoTrack('checkout_started', email, {
+        id: 'cart',
+        data: {
+          total: subtotal() / 100,
+          currency: 'CAD',
+          url: 'https://popularpeptides.ca/checkout',
+          items: items.map(i => ({ name: i.productName, quantity: i.quantity, price: i.price / 100 })),
+        },
+      })
     }
   }
 
@@ -160,6 +172,15 @@ export default function CheckoutPage() {
 
       // Track purchase + clear abandoned email
       localStorage.removeItem(ABANDONED_EMAIL_KEY)
+      brevoTrack('order_completed', form.email, {
+        id: data.orderNumber,
+        data: {
+          total: grandTotal / 100,
+          currency: 'CAD',
+          coupon: appliedPromo?.code ?? '',
+          items: items.map(i => ({ name: i.productName, quantity: i.quantity, price: i.price / 100 })),
+        },
+      })
       trackEvent('purchase', {
         transaction_id: data.orderNumber,
         currency: 'CAD',

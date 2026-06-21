@@ -4,8 +4,17 @@ import { getBlogPosts } from '@/data/blog'
 import { ArrowRight, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Research Blog | Popular Peptides Canada',
+  title: 'Research Blog',
   description: 'Research guides, compound overviews, and lab notes from Popular Peptides — Canada\'s trusted source for GMP-grade research compounds.',
+  alternates: { canonical: 'https://popularpeptides.ca/blog' },
+  openGraph: {
+    type: 'website',
+    url: 'https://popularpeptides.ca/blog',
+    siteName: 'Popular Peptides',
+    title: 'Research Blog — Popular Peptides Canada',
+    description: 'Research guides, compound overviews, and lab notes from Popular Peptides.',
+    images: [{ url: '/images/branding/science.png', width: 1536, height: 1024, alt: 'Popular Peptides research blog' }],
+  },
 }
 
 export default function BlogPage() {
