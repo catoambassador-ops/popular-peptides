@@ -70,7 +70,7 @@ function ProportionBar({ aliquotMl, totalMl }: { aliquotMl: number; totalMl: num
   return (
     <div className="w-full">
       <div className="flex items-end justify-between mb-2">
-        <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">Aliquot vs. vial volume</span>
+        <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">Portion vs. vial volume</span>
         <span className={`font-mono text-xs font-700 ${over ? 'text-red-500' : 'text-brand-cyan'}`}>
           {totalMl > 0 ? `${pct.toFixed(1)}%` : '—'}
         </span>
@@ -150,13 +150,13 @@ export default function PeptideCalculatorPage() {
           </div>
           <p className="text-text-secondary max-w-2xl">
             A reference tool for laboratory handling. Enter your vial size and diluent volume to calculate
-            the reconstituted concentration, the volume of a target aliquot, and the number of aliquots per vial.
+            the reconstituted concentration, the volume of a target portion, and the number of portions per vial.
           </p>
           {/* Quick 3-step guide */}
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-text-muted">
             <span><span className="text-brand-cyan font-700">1.</span> Pick a compound or go Custom</span>
             <span><span className="text-brand-cyan font-700">2.</span> Enter vial size &amp; diluent volume</span>
-            <span><span className="text-brand-cyan font-700">3.</span> Read your concentration &amp; aliquots</span>
+            <span><span className="text-brand-cyan font-700">3.</span> Read your concentration &amp; portions</span>
           </div>
         </div>
       </div>
@@ -268,14 +268,14 @@ export default function PeptideCalculatorPage() {
             <div className="card p-6">
               <div className="flex items-center gap-2 mb-1">
                 <Beaker size={16} className="text-brand-cyan" />
-                <h2 className="font-display text-base font-700 text-text-primary tracking-wide uppercase">Step 2: Aliquot Reference</h2>
+                <h2 className="font-display text-base font-700 text-text-primary tracking-wide uppercase">Step 2: Portion Reference</h2>
               </div>
               <p className="font-body text-sm text-text-muted mb-5">Set how much compound you want in each measured portion (aliquot).</p>
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block font-mono text-xs text-text-muted tracking-widest uppercase mb-2">
-                    Target Amount per Aliquot
+                    Target Amount per Portion
                   </label>
                   <div className="relative">
                     <input
@@ -305,14 +305,14 @@ export default function PeptideCalculatorPage() {
               {/* Results grid */}
               <div className="mt-5 grid grid-cols-2 gap-3">
                 <div className="p-4 bg-brand-cyan text-center">
-                  <div className="font-mono text-xs text-bg-primary/70 tracking-widest uppercase mb-1">Aliquot Volume</div>
+                  <div className="font-mono text-xs text-bg-primary/70 tracking-widest uppercase mb-1">Portion Volume</div>
                   <div className="font-display text-xl font-700 text-bg-primary">
                     {aliquotVolumeMl > 0 ? aliquotVolumeMl.toFixed(3) : '—'}
                   </div>
                   <div className="font-mono text-xs text-bg-primary/80">mL</div>
                 </div>
                 <div className="p-4 bg-bg-tertiary border border-border-subtle text-center">
-                  <div className="font-mono text-xs text-text-muted tracking-widest uppercase mb-1">Aliquots / Vial</div>
+                  <div className="font-mono text-xs text-text-muted tracking-widest uppercase mb-1">Portions / Vial</div>
                   <div className="font-display text-xl font-700 text-text-primary">
                     {aliquotsPerVial > 0 ? aliquotsPerVial : '—'}
                   </div>
@@ -328,14 +328,14 @@ export default function PeptideCalculatorPage() {
                     <strong className="text-brand-cyan font-700">{aliquotVolumeMl.toFixed(3)} mL</strong>{' '}
                     to get{' '}
                     <strong className="text-text-primary font-700">{aliquotMcgNum.toLocaleString('en-CA')} mcg</strong>{' '}
-                    per aliquot — about{' '}
+                    per portion — about{' '}
                     <strong className="text-text-primary font-700">{aliquotsPerVial}</strong>{' '}
-                    aliquots from this vial.
+                    portions from this vial.
                   </p>
                 </div>
               ) : (
                 <p className="mt-4 font-mono text-xs text-text-muted leading-relaxed">
-                  Enter a vial size, diluent volume, and target amount to see your aliquot volume.
+                  Enter a vial size, diluent volume, and target amount to see your portion volume.
                 </p>
               )}
             </div>
@@ -348,8 +348,8 @@ export default function PeptideCalculatorPage() {
               <div className="flex-1 flex flex-col justify-between gap-4 font-body text-[15px] text-text-secondary leading-relaxed">
                 <p><strong className="text-text-primary">Reconstitution:</strong> Add bacteriostatic water slowly down the vial wall — do not direct it onto the lyophilized powder. Swirl gently; do not shake.</p>
                 <p><strong className="text-text-primary">Storage:</strong> Reconstituted material should be refrigerated at 2–8°C and used within 4–6 weeks for research consistency.</p>
-                <p><strong className="text-text-primary">Diluent:</strong> Use bacteriostatic water for multi-aliquot vials to limit microbial contamination.</p>
-                <p><strong className="text-text-primary">Aliquoting:</strong> Measure volumes with a calibrated pipette for repeatable concentrations across a study.</p>
+                <p><strong className="text-text-primary">Diluent:</strong> Use bacteriostatic water for multi-portion vials to limit microbial contamination.</p>
+                <p><strong className="text-text-primary">Portioning:</strong> Measure volumes with a calibrated pipette for repeatable concentrations across a study.</p>
               </div>
             </div>
 
@@ -364,7 +364,7 @@ export default function PeptideCalculatorPage() {
                   <h2 className="font-display text-base font-700 text-text-primary tracking-wide uppercase">Summary</h2>
                 </div>
                 <span className="font-mono text-[11px] text-text-muted tracking-wide">
-                  Reconstitution &amp; aliquot reference
+                  Reconstitution &amp; portion reference
                 </span>
               </div>
 
@@ -377,14 +377,14 @@ export default function PeptideCalculatorPage() {
                   </span>
                 </div>
                 <div className="px-5 py-4 flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-text-muted tracking-widest uppercase">Aliquot Volume</span>
+                  <span className="font-mono text-[11px] text-text-muted tracking-widest uppercase">Portion Volume</span>
                   <span className="font-display text-lg font-700 text-text-primary tabular-nums">
                     {aliquotVolumeMl > 0 ? aliquotVolumeMl.toFixed(3) : '—'}
                     <span className="font-mono text-xs text-text-muted ml-1">mL</span>
                   </span>
                 </div>
                 <div className="px-5 py-4 flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-text-muted tracking-widest uppercase">Aliquots / Vial</span>
+                  <span className="font-mono text-[11px] text-text-muted tracking-widest uppercase">Portions / Vial</span>
                   <span className="font-display text-lg font-700 text-text-primary tabular-nums">
                     {aliquotsPerVial > 0 ? aliquotsPerVial : '—'}
                   </span>
@@ -411,8 +411,8 @@ export default function PeptideCalculatorPage() {
           <div className="space-y-4 font-body text-[15px] text-text-secondary leading-relaxed">
             <p><strong className="text-text-primary">Reconstitution:</strong> Add bacteriostatic water slowly down the vial wall — do not direct it onto the lyophilized powder. Swirl gently; do not shake.</p>
             <p><strong className="text-text-primary">Storage:</strong> Reconstituted material should be refrigerated at 2–8°C and used within 4–6 weeks for research consistency.</p>
-            <p><strong className="text-text-primary">Diluent:</strong> Use bacteriostatic water for multi-aliquot vials to limit microbial contamination.</p>
-            <p><strong className="text-text-primary">Aliquoting:</strong> Measure volumes with a calibrated pipette for repeatable concentrations across a study.</p>
+            <p><strong className="text-text-primary">Diluent:</strong> Use bacteriostatic water for multi-portion vials to limit microbial contamination.</p>
+            <p><strong className="text-text-primary">Portioning:</strong> Measure volumes with a calibrated pipette for repeatable concentrations across a study.</p>
           </div>
         </div>
 
