@@ -152,6 +152,12 @@ export default function PeptideCalculatorPage() {
             A reference tool for laboratory handling. Enter your vial size and diluent volume to calculate
             the reconstituted concentration, the volume of a target aliquot, and the number of aliquots per vial.
           </p>
+          {/* Quick 3-step guide */}
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-text-muted">
+            <span><span className="text-brand-cyan font-700">1.</span> Pick a compound or go Custom</span>
+            <span><span className="text-brand-cyan font-700">2.</span> Enter vial size &amp; diluent volume</span>
+            <span><span className="text-brand-cyan font-700">3.</span> Read your concentration &amp; aliquots</span>
+          </div>
         </div>
       </div>
 
@@ -184,10 +190,11 @@ export default function PeptideCalculatorPage() {
 
             {/* Step 1: Reconstitution inputs */}
             <div className="card p-6">
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-1">
                 <FlaskConical size={16} className="text-brand-cyan" />
                 <h2 className="font-display text-base font-700 text-text-primary tracking-wide uppercase">Step 1: Reconstitution</h2>
               </div>
+              <p className="font-body text-sm text-text-muted mb-5">Tell us how much compound is in the vial and how much diluent you&apos;re adding.</p>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block font-mono text-xs text-text-muted tracking-widest uppercase mb-2">
@@ -205,6 +212,7 @@ export default function PeptideCalculatorPage() {
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-sm text-text-muted">mg</span>
                   </div>
+                  <p className="font-mono text-[11px] text-text-muted mt-1.5">Total mg in the vial — shown on the label.</p>
                 </div>
                 <div>
                   <label className="block font-mono text-xs text-text-muted tracking-widest uppercase mb-2">
@@ -221,6 +229,24 @@ export default function PeptideCalculatorPage() {
                       className="input-field pr-14 font-mono text-lg font-700"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-sm text-text-muted">mL</span>
+                  </div>
+                  {/* Quick-pick common diluent volumes */}
+                  <div className="flex items-center gap-1.5 mt-2">
+                    <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase mr-1">Quick</span>
+                    {['1', '2', '3', '5'].map(v => (
+                      <button
+                        key={v}
+                        type="button"
+                        onClick={() => setBacWaterMl(v)}
+                        className={`px-2 py-1 font-mono text-[11px] border transition-all ${
+                          bacWaterMl === v
+                            ? 'bg-brand-cyan text-bg-primary border-brand-cyan font-700'
+                            : 'border-border-default text-text-secondary hover:border-brand-cyan hover:text-brand-cyan'
+                        }`}
+                      >
+                        {v} mL
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -240,10 +266,11 @@ export default function PeptideCalculatorPage() {
 
             {/* Aliquot calculation */}
             <div className="card p-6">
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-1">
                 <Beaker size={16} className="text-brand-cyan" />
                 <h2 className="font-display text-base font-700 text-text-primary tracking-wide uppercase">Step 2: Aliquot Reference</h2>
               </div>
+              <p className="font-body text-sm text-text-muted mb-5">Set how much compound you want in each measured portion (aliquot).</p>
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
@@ -292,6 +319,25 @@ export default function PeptideCalculatorPage() {
                   <div className="font-mono text-xs text-text-muted">per vial</div>
                 </div>
               </div>
+
+              {/* Plain-language summary */}
+              {aliquotVolumeMl > 0 && aliquotsPerVial > 0 ? (
+                <div className="mt-4 p-4 bg-brand-cyan/5 border border-brand-cyan/30 rounded-sm">
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    In plain terms: measure{' '}
+                    <strong className="text-brand-cyan font-700">{aliquotVolumeMl.toFixed(3)} mL</strong>{' '}
+                    to get{' '}
+                    <strong className="text-text-primary font-700">{aliquotMcgNum.toLocaleString('en-CA')} mcg</strong>{' '}
+                    per aliquot — about{' '}
+                    <strong className="text-text-primary font-700">{aliquotsPerVial}</strong>{' '}
+                    aliquots from this vial.
+                  </p>
+                </div>
+              ) : (
+                <p className="mt-4 font-mono text-xs text-text-muted leading-relaxed">
+                  Enter a vial size, diluent volume, and target amount to see your aliquot volume.
+                </p>
+              )}
             </div>
 
             {/* Handling Tips (desktop) */}
